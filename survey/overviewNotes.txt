@@ -1,0 +1,8 @@
+Overview:
+ - Current apps focus on functionality and overlook basic design principles so we can combine both into a better solution
+ - App for investers to check on stocks while on the go
+ 
+Improvements:
+ - No orientation switching when device is orientation locked
+ - Seeing information about the stock without adding to your portfolio
+ - Making actions that can be taken more visible to user
