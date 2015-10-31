@@ -1,6 +1,5 @@
 <template name="home">
     {{#contentFor "headerButtonLeft"}}
-        {{>ionNavBackButton}}
     {{/contentFor}}
     {{#contentFor "headerTitle"}}
         <h1 class="title">Meteor-Stocks</h1>
@@ -8,7 +7,11 @@
 
     {{#ionView}}
         {{#ionContent}}
-            Content goes here
+            {{#each items}}
+                {{#ionItem path="detail" data=this buttonRight=true avatar=false class="my-class" id="my-id"}}
+                    {{name}} {{price}}
+                {{/ionItem}}
+            {{/each}}
         {{/ionContent}}
     {{/ionView}}
 </template>
