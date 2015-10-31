@@ -81,54 +81,65 @@ breaklinks=true,
 \maketitle
 
 \begin{abstract}
-Be sure to also indicate if you are submitting a DESIGN or RESEARCH project in the ``Abstract'' section of
-your submission.
+This paper serves as a design project in order to improve the user interface of general stock applications. It first proposes the existing problems of current stock applications as well as intended high-level solutions before critiquing a series of existing applications in the survey. Finally, we offer Hierarchical Task Analysis diagrams in order to illustrate the user paths necessary to accomplish similar goals in each surveyed application.
 \end{abstract}
 
+\section{Proposal}
+This section includes an overview of the generalised ``stock application'' and elaborates as to why it should be redesigned. It also offers design improvements that would benefit users using the application.
 
-\section{Overview}
-overview of the topic/software/device of interest – tell me why you want to develop such a system
+\subsection{Overview}
+A large portion of applications currently available choose to focus on functionality or information as opposed to an adequate user interface. Whereas proper functionality is necessary in order to develop a \textit{functionning} application, it is not where development should end. \\
+An often overlooked aspect of development and design is the user interface which is arguably one of the most important parts of an application. Without an adequate user interface, many (if not all) functions of the program me be misunderstood, misused or even altogether unused. \\
+The world of stocks is a quick paced environment that is always changing. Because of this, many people who wish to learn about stocks and their fluctuations are keen to absorb as much information as possible in the shortest amount of time. Development for stock-market applications have therefore been greatly afflicted by this as designers program these applications by placing the information first without considering how a user might interpret or use it. The result is, in almost every case, heaps of undistinguishable data sorted in a seemingly random order which forces it's users to work harder than is necessary to understand what it conveys. \\
+We have therefore chosen to design an interface for a stock application that remains foremost user-oriented while ensuring all information is easily accessible and intuitively organised. 
 
-\section{Design Improvements}
-idea of what will be unique/better/improved in your system (versus what already exists – this will be
-informed by your software survey)
-
-\section{User Goals}
-User goals when using this application are mainly to understand large amounts of information in meaningful ways. Primarily, users are interested in gathering insight related to general stock markets as well as their favourite stocks.
-
+\subsection{Design Improvements}
+While many applications that have been surveyed offer some unique and positive aspects, many of them suffer from similar problems. \\
+Above all is the organisation of data. Most applications either attempt to overflow your display with too much data (making it impossible to quickly and intuitively understand) or oversimplify its interface by cutting a large portion of otherwise useful information in favour for a \textit{cleaner} design. One major aspect we intend on improving is information organisation. Data will be grouped in meaningful ways (keeping similar types of data together either by stock name or stock type) making it more easily understandable and accessible. \\
+Another common issue with stock applications is usability. By placing the information provided first, they often weakly implement proper signifiers that would otherwise allow the user to understand what actions can and cannot be executed at any given time. This includes improperly identified headers leading to mistaken information, buttons that are not easily differentiable from regular text and a misuse of styling which could convey information without forcing the user to fully analyse it. We intend on improving the overall usability of our application by ensuring proper use of signifiers, titles and styling (such as tables and graphs) to ensure that users can understand the functions and limitations of our application easily and quickly. \\
+Another more specific design flaw that many applications used was the inability to view specific stock information related to one company without first adding it to your portfolio. This causes users to unnecessarily add a potentially large amount of stocks to their portfolio, just to remove them right away, discourage the user from using the application, and clutter their portfolio of otherwise thoughtfully chosen stocks. We therefore intend to offer a general search function which will allow users to search for a stock and view information specific to it without having to constantly add and remove it from their portfolio. This will reduce unnecessary user-interaction times and allow users to spend more time observing stocks and less time attempting to understand where they are. 
 
 
-\section{Microsoft Money}
-\subsection{Description}
+
+\section{Survey}
+This section identifies the high-level goals a user utilising this application needs. It also critiques four different existing stock applications and highlights places where the application could be improved.
+
+
+\subsection{User Goals}
+Users of this application mainly want to understand large amounts of information quickly and in meaningful ways. Primarily, users are interested in gathering insight related to general stock markets as well as their favourite stocks categorised in a ``portfolio''. The largest concern is showing users information they want to see at a glance, allowing them to delve deeper if desired. It is also important to allow users to view new stocks without committing them to their portfolio.
+
+
+\subsection{Microsoft Money}
+\subsubsection{Description}
 Microsoft's Windows 10 operating system comes bundled with a series of integrated applications, one of which is appropriately named ``Money'' and offers insight pertaining to the stock market, currencies and general finances. The application also enables users to monitor the progress of their favourite stocks as well as read financial articles and calculate mortgage payments.
 
-\subsection{User Tasks}
+\subsubsection{User Tasks}
 In order for a user to view general information on the stock market, they must use the \textit{markets} page, listed in the application's sidebar, which displays statistics related to the past and current states of the local and global markets using a simple line graph as well as statistics describing the stocks increases and decreases in value. \\
 Users may also view a simplified list of their favourite stocks in their \textit{watchlist}, accessed through the sidebar or the top menu bar, which presents a summary of the stocks to which they have subscribed including current pricing, changes and volume for each stock.
 
-\subsection{Critique}
+\subsubsection{Critique}
 Although the application does an excellent job of simplifying the interface, it goes beyond and seems to oversimplify it by crowding a lack of relevant information with large amounts of redundant content. For instance, the \textit{home} page's poor visibility shows very little stock ticker information in preference for a myriad of large-tiled articles. \\
 The conceptual model of the application is therefore very simplified in terms of usable information as the overcrowded nature significantly decreases its usability. Its severe lack of signifiers also makes finding new stocks and navigating the application challenging, hence decreasing its overall discoverability as users are constantly unsure of what can and cannot be accomplished. \\
 It should be noted however that the layout, although crowded at times, is well conceived as the stock information is clear and easily interpreted.
 
 
 
-\section{Apple Stocks}
-\subsection{Description}
+\subsection{Apple Stocks}
+\subsubsection{Description}
 The iOS 9.0.2 comes with a lot of standard applications and the subject of this section will be Apple Stocks, Apple's financial stock market application. Apple Stocks allows the user to take a look at advanced statistics and news articles about stocks that they have selected as part of their portfolio. Note that Apple Stocks works with Yahoo! Finance to provide real-time updates to the user.
 
-\subsection{User Tasks}
+\subsubsection{User Tasks}
 If the user wants to view general information about their portfolio, the user simply has to open the application. Immediately after opening the application, the user sees the Apple Stocks home screen. The top half of the screen consists of the list of stocks in their portfolio and the bottom half is the information centre with details about the stock in the portfolio that is highlighted. \\
 If the user would like to modify their portfolio, the user has to go into the \textit{Portfolio Settings} menu. Inside the menu, they can choose to either re-order, add to or remove from the list of stocks. Once the user is satisfied with their portfolio, they can click on the blue \textit{Done} button in the top right corner of the screen and return to the application's home screen.
 
-\subsection{Critique}
+\subsubsection{Critique}
 Apple Stocks does a great job of applying natural mapping to its UI. The user's portfolio is displayed as a list, and for them to scroll through options, they can swipe up or down to move the list up or down. The user can intuitively learn about how swiping on the portfolio and swiping the information centre for a highlighted stock affects the information displayed. The application also does a great job of keeping its layout concise and delivers information about a user's portfolio in a very quick manner. \\
 One aspect that Apple Stocks does not perform well in is making the option to modify a portfolio apparent to the user. Apart from the small list icon tucked away into the corner of the UI's layout, there aren't any signifiers to the user that this option exists. The icon itself doesn't an indicator that it is a button – there are no lines around the icon and it blends into the background of the UI. This can make it confusing for the user to find where to click if they want to modify their portfolio.
 
 
 
-\section{HTC Stocks}
-\subsection{Description}
+\subsection{HTC Stocks}
+\subsubsection{Description}
 HTC Stocks is a mobile Android application that comes installed on all HTC devices.  This app allows the user to add stocks to their list of bookmarked stocks, view basic information about all stocks that they have bookmarked at the same time, and view detailed information about one stock at a time.  The detailed stock view includes a graph of price history, high and low prices, and information about the values at open and close for the stock on the current day.  The application is powered by Yahoo Finance.
 
 %\subsection{User Goals}
@@ -138,26 +149,26 @@ HTC Stocks is a mobile Android application that comes installed on all HTC devic
 %that is displayed to them is the information that they want. 
 %finding information about generals stocks and monitoring favorite stocks
 
-\subsection{User Tasks}
+\subsubsection{User Tasks}
 For a user to find information about stocks they may be interested in through this application, they first need to add the stock in question to their favorites.  Once this is done, the stock will appear in the users list of favorite stocks, where they can tap on it to see detailed information.\\
 To view general information about all of the stocks that a user is following, all that the user needs to do is open the app.  On the home view a list of all of the stocks that a user is currently following is displayed along with the current price of the stock, along with the absolute and relative changes in the stock's price over the trading day.
 
-\subsection{Critique}
+\subsubsection{Critique}
 This application falls short when it comes to viewing information about stocks that a user may be interested in.  For a user to see any information about a stock, it must be added to their list of favorite stocks.  As a result, the user may end up with a favorites list that is cluttered with stocks that they only wanted to view once, which makes seeing information about their regular stocks more difficult.  This application does a good job however in displaying quick information to the user about their followed stocks.  If the user has maintained an accurate list of their favorite stocks, they will see the majority of the information they need as soon as they open the application.
 
 
 
-\section{YAHOO! Finance}
-\subsection{Description}
+\subsection{YAHOO! Finance}
+\subsubsection{Description}
 YAHOO! Finance mobile application allows users to track trading prices of current stocks. The application is composed of three main sections: Home, News, and Markets. The Home section contains a list of the user’s stocks that he/she is following, followed by select news articles. The News section contains the latest news reports on various international current events; mostly articles concerning foreign markets and companies. The third section, Markets, allows the user to track the S\&P Composite Index for the Toronto Stock Exchange (TSX), the Dow Jones Industrial Average (DOW), and NASDAQ. 
 
-\subsection{User Tasks}
+\subsubsection{User Tasks}
 The first task is for a user to follow a new stock. He/she is first required to open the application. Once on the Home page, the user clicks on the Edit icon, rendering the edit view of the list of the stocks he/she is following. The user then clicks the Add icon and searches for the stock of interest. Once found and selected, the stock is added to the list of followed stocks.\\
 
 The second task is for a user to check which stocks in the American market have increased in the most value in the last day. This can be done by opening the application and going to the Markets page. The user then ensures that the U.S. market button is selected. He/she then scrolls down to the section “Market Gainers” to see which stocks have increased the most in the last day in the American market.
 
 
-\subsection{Critique}
+\subsubsection{Critique}
 YAHOO! Finance displays adequate visibility for its overall layout. Intuitively, the Home page contains the most common information that a user would require (status of his/her followed stocks, news items). The News page contains news articles (as expected), and the Markets page contains information regarding each market in an organized fashion. \\
 
 The application lacks organization when displaying its news articles. Like most mobile application, it integrates ads into the user interface. Links to ads appear sporadically in between news articles in the news article feeds on both the Home and News pages. It would make more sense to group all ads together so the user can differentiate an ad from a news article more easily. 
