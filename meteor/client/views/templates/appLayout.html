@@ -1,0 +1,12 @@
+<template name="appLayout">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    {{#ionBody}}
+        {{> ionNavBar}}
+
+        {{#ionNavView}}
+            {{> yield}}
+        {{/ionNavView}}
+    {{/ionBody}}
+</template>
