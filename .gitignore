@@ -23,4 +23,5 @@
 *.synctex.gz*
 *.pdf
 .idea/
+meteor/.mobile
 meteor/settings.json
