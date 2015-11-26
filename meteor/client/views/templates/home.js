@@ -1,32 +1,58 @@
 /**
  * Created by Connor on 10/30/2015.
  */
+var portfolio = [
+    {
+        _id: '1',
+        symbol: 'GOOG',
+    },
+    {
+        _id: '5',
+        symbol: 'AAPL',
+    },
+    {
+        _id: '4',
+        symbol: 'MSFT',
+    },
+    {
+        _id: '3',
+        symbol: 'TWTR',
+    },
+    {
+        _id: '2',
+        symbol: 'YHOO',
+    },
+];
 Template.home.helpers({
-    items: [
-        {
-            _id: '1',
-            name: 'test',
-            price: 10
-        },
-        {
-            _id: '5',
-            name: 'test',
-            price: 10
-        },
-        {
-            _id: '4',
-            name: 'test',
-            price: 10
-        },
-        {
-            _id: '3',
-            name: 'test',
-            price: 10
-        },
-        {
-            _id: '2',
-            name: 'test',
-            price: 10
-        },
-    ]
+    items: portfolio,
+    price: function () {
+        var stock = Stocks.findOne({symbol: this.symbol});
+        return stock.lastTradePriceOnly;
+    },
+    change: function () {
+        var stock = Stocks.findOne({symbol: this.symbol});
+        return stock.change;
+    },
+    name: function () {
+        var stock = Stocks.findOne({symbol: this.symbol});
+        return stock.name;
+    },
+    changeStyle: function () {
+        var stock = Stocks.findOne({symbol: this.symbol});
+        var change = stock.change;
+        if (change > 0){
+            return 'button-balanced'
+        } else if (change < 0) {
+            return 'button-assertive'
+        } else {
+            return "button-calm"
+        }
+    }
+
 });
+
+Template.home.rendered = function () {
+    Meteor.call('getQuotes', {symbols: ['GOOG','AAPL','MSFT','TWTR','YHOO'], fields: Fields}, function (err, res) {
+
+    });
+};

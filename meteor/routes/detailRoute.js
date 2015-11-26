@@ -15,7 +15,7 @@ DetailsController = RouteController.extend({
     }
 });
 
-Router.route('/:_id', {
+Router.route('/:symbol', {
     name: 'detail',
     controller: DetailsController
 });

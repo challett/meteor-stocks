@@ -9,10 +9,11 @@
         {{#ionContent}}
             {{#each items}}
                 {{#ionItem path="detail" data=this buttonRight=true avatar=false class="my-class" id="my-id"}}
-                    {{name}} {{price}}
+                    <div class="stockinfo item-button-right">
+                        {{symbol}} {{name}} {{price}} <button class="button {{changeStyle}}">{{change}}</button>
+                    </div>
                 {{/ionItem}}
             {{/each}}
         {{/ionContent}}
     {{/ionView}}
 </template>
-

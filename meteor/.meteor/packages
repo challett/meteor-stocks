@@ -24,8 +24,11 @@ meteoric:ionic
 markdown
 
 
-npm-container
 cosmos:browserify
 http
 meteoric:ionic-sass
 meteoric:ionicons-sass
+appcache
+ground:db
+ajbarry:yahoo-finance
+erasaur:meteor-lodash
