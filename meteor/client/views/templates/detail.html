@@ -2,13 +2,26 @@
     {{#contentFor "headerButtonLeft"}}
         {{>ionNavBackButton}}
     {{/contentFor}}
+    {{#contentFor "headerButtonRight"}}
+        <button class="button button-clear pull-right" data-ion-menu-toggle="right">
+            {{#if isAndroid}}
+                {{> ionIcon icon='android-more-vertical'}}
+            {{else}}
+                {{> ionIcon icon='navicon'}}
+            {{/if}}
+        </button>
+    {{/contentFor}}
     {{#contentFor "headerTitle"}}
-        <h1 class="title">Meteor-Stocks-Details</h1>
+        <h1 class="title">{{stock.symbol}}</h1>
     {{/contentFor}}
 
     {{#ionView}}
         {{#ionContent}}
-            Content Here
+            {{#each field in fields}}
+                {{#if stockFieldValue field}}
+                    {{field}}: {{stockFieldValue field}} <br>
+                {{/if}}
+            {{/each}}
         {{/ionContent}}
     {{/ionView}}
 </template>
