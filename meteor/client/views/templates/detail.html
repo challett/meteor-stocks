@@ -3,7 +3,7 @@
         {{>ionNavBackButton}}
     {{/contentFor}}
     {{#contentFor "headerButtonRight"}}
-        <button class="button button-clear pull-right" data-ion-menu-toggle="right">
+        <button class="button button-clear pull-right" data-ion-menu-toggle="left">
             {{#if isAndroid}}
                 {{> ionIcon icon='android-more-vertical'}}
             {{else}}
@@ -17,6 +17,9 @@
 
     {{#ionView}}
         {{#ionContent}}
+            <div id="graph">
+                <g/>
+            </div>
             {{#each field in fields}}
                 {{#if stockFieldValue field}}
                     {{field}}: {{stockFieldValue field}} <br>

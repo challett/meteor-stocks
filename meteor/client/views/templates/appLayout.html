@@ -3,10 +3,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     {{#ionBody}}
-        {{#ionSideMenuContainer}}
+        {{#ionSideMenuContainer side="left"}}
 
             {{#ionSideMenus}}
 
+                {{#ionSideMenu}}
+                    {{#if isPortfolioPage}}
+                        {{> portfolioSideMenu}}
+                    {{else}}
+                        {{> detailsSideMenu}}
+                    {{/if}}
+                {{/ionSideMenu}}
                 {{#ionSideMenu side='right'}}
                     {{#if isPortfolioPage}}
                         {{> portfolioSideMenu}}

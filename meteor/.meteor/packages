@@ -32,3 +32,5 @@ appcache
 ground:db
 ajbarry:yahoo-finance
 erasaur:meteor-lodash
+d3js:d3
+momentjs:moment
