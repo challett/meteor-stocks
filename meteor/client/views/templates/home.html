@@ -9,18 +9,25 @@
         </button>
     {{/contentFor}}
     {{#contentFor "headerTitle"}}
-        <h1 class="title">Portfolio</h1>
+        <h1 class="title navBar">Portfolio</h1>
     {{/contentFor}}
 
     {{#ionView}}
         {{#ionContent}}
-            {{#each items}}
-                {{#ionItem path="detail" data=this buttonRight=true avatar=false class="my-class" id="my-id"}}
-                    <div class="stockinfo item-button-right">
-                        {{symbol}} {{name}} {{price}} <button class="button {{changeStyle}}">{{change}}</button>
-                    </div>
-                {{/ionItem}}
-            {{/each}}
+            <div class="card">
+                {{#each items}}
+                    {{#ionItem path="detail" data=this buttonRight=true avatar=false class="my-class" id="my-id"}}
+                        <div class="stockinfo item-button-right">
+                            <div class="symbol"> {{symbol}} </div>
+                            <div class="name"> {{name}} </div>
+                            <div class="priceAndChange">
+                                <div class="price" style="color: {{changeColor}};"> {{price}} </div>
+                                <div class="change" style="background-color: {{changeColor}};"> {{change}} </div>
+                            </div>
+                        </div>
+                    {{/ionItem}}
+                {{/each}}
+            </div>
         {{/ionContent}}
     {{/ionView}}
 </template>

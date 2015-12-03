@@ -47,6 +47,17 @@ Template.home.helpers({
         } else {
             return "button-calm"
         }
+    },
+    changeColor: function () {
+        var stock = Stocks.findOne({symbol: this.symbol});
+        var change = stock.change;
+        if (change > 0){
+            return '#2ec76f'
+        } else if (change < 0) {
+            return '#d22d2d'
+        } else {
+            return "#3f5973"
+        }
     }
 
 });
