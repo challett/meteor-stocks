@@ -1,2 +1,65 @@
 @import '.meteor/local/build/programs/server/assets/packages/meteoric_ionic-sass/ionic';
 @import '.meteor/local/build/programs/server/assets/packages/meteoric_ionicons-sass/ionicons';
+
+// Colours
+$prim: #3f5973;
+$sec: #364c63;
+$bkgd: #f4f4f4;
+$card: #ffffff;
+$searchBkgd: #fafafa;
+$lightFont: #9a9a9a;
+
+body {
+  background-color: black;
+}
+
+.navBar {
+  background-color: $prim;
+  /*height: 10%;*/
+  color: white;
+}
+
+.card {
+  height: auto;
+  width: 80%;
+  position: relative;
+  margin: 0 auto;
+}
+
+.symbol {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  color: black;
+}
+
+.name {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  color: $lightFont;
+}
+
+.price {
+  position: relative;
+  width: 100%;
+}
+
+.change {
+  color: white;
+  width: 100%;
+  height: auto;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  padding: 5px;
+  position: relative;
+}
+
+.priceAndChange {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  width: 80px;
+  text-align: center;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
