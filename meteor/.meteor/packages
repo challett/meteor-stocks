@@ -35,3 +35,7 @@ erasaur:meteor-lodash
 d3js:d3
 momentjs:moment
 harrison:papa-parse
+meteoric:autoform-ionic
+aldeed:simple-schema
+aldeed:collection2
+less
