@@ -34,3 +34,6 @@ ajbarry:yahoo-finance
 erasaur:meteor-lodash
 d3js:d3
 momentjs:moment
+meteoric:autoform-ionic
+aldeed:simple-schema
+aldeed:collection2

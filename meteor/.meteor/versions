@@ -1,4 +1,7 @@
 ajbarry:yahoo-finance@0.2.11_1
+aldeed:autoform@4.2.0
+aldeed:collection2@2.3.1
+aldeed:simple-schema@1.1.0
 appcache@1.0.6
 autopublish@1.0.4
 autoupdate@1.2.4
@@ -61,6 +64,7 @@ logging@1.0.8
 markdown@1.0.5
 meteor@1.1.10
 meteor-base@1.0.1
+meteoric:autoform-ionic@0.1.5
 meteoric:ionic@0.1.19
 meteoric:ionic-sass@0.3.0
 meteoric:ionicons-sass@0.1.7
@@ -71,6 +75,7 @@ mobile-status-bar@1.0.6
 momentjs:moment@2.10.6
 mongo@1.1.3
 mongo-id@1.0.1
+mrt:moment@2.6.0
 npm-mongo@1.4.39_1
 observe-sequence@1.0.7
 ordered-dict@1.0.4

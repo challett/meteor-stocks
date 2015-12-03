@@ -3,10 +3,19 @@
         <h1 class="title">Options</h1>
     </div>
     <div class="content has-header">
-        <div class="list">
-            <div class="item item-icon-right" data-ion-menu-close>
-                Close Me {{> ionIcon icon="ios-arrow-right"}}
-            </div>
+
+    {{#ionList class="my-class"}}
+        <div class="item item-icon-right" data-ion-menu-close>
+            Close Me {{> ionIcon icon="ios-arrow-right"}}
         </div>
+        {{#each item in preference}}
+            {{#autoForm collection="Preferences" type="update" template="ionic" doc=item autosave=true id=item.name}}
+                <fieldset>
+                    {{> afQuickField name='name' hidden=true}}
+                    {{> afQuickField name='showPortfolio' value=item.showPortfolio}}
+                </fieldset>
+            {{/autoForm}}
+        {{/each}}
+    {{/ionList}}
     </div>
 </template>
