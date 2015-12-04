@@ -27,7 +27,6 @@ Template.portfolioSideMenu.helpers({
                 'lastTradeDate',
                 'lastTradeTime',
                 'lastTradeWithTime',
-                'lastTradePriceOnly',
                 '1YrTargetPrice',
                 'changeFrom200DayMoving',
                 '50DayMovingAverage',
