@@ -9,6 +9,7 @@ PreferencesSchema = new SimpleSchema({
     },
     showPortfolio: {
         type: Boolean,
+        optional: true,
         defaultValue: false,
         autoform: {
             type: 'boolean-checkbox'
