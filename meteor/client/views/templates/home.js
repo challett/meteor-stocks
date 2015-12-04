@@ -27,11 +27,13 @@ Template.home.helpers({
     items: portfolio,
     price: function () {
         var stock = Stocks.findOne({symbol: this.symbol});
-        return stock.lastTradePriceOnly;
+        var num = stock.lastTradePriceOnly;
+        return num.toFixed(2);
     },
     change: function () {
         var stock = Stocks.findOne({symbol: this.symbol});
-        return stock.change;
+        var num = stock.change;
+        return num.toFixed(2);
     },
     name: function () {
         var stock = Stocks.findOne({symbol: this.symbol});
