@@ -15,16 +15,37 @@
         <h1 class="title">{{stock.symbol}}</h1>
     {{/contentFor}}
 
+
     {{#ionView}}
         {{#ionContent}}
-            <div id="graph">
-                <g/>
+
+            <div class="card graph-card">
+                <div class="item item-divider">
+                    Stock info for this stock
+                </div>
+                <div class="item item-text-wrap graph-card-section" id="graph-card-section">
+                    <div id="graph">
+                        <g/>
+                    </div>
+                </div>
+                <div class="item item-divider">
+                    Date options for graph
+                </div>
             </div>
+
             {{#each field in fields}}
                 {{#if stockFieldValue field}}
-                    {{field}}: {{stockFieldValue field}} <br>
+                    <div class="card detail-card detail-card-title">
+                        <div class="item item-divider item-divider-title">
+                            {{field}}
+                        </div>
+                        <div class="item item-text-wrap item-text-wrap-title">
+                            {{stockFieldValue field}}
+                        </div>
+                    </div>
                 {{/if}}
             {{/each}}
+
         {{/ionContent}}
     {{/ionView}}
 </template>

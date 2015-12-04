@@ -1,17 +1,46 @@
 /* CSS declarations go here */
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: #9a9a9a;
+}
+
+text.shadow {
+    stroke: #fff;
+    stroke-width: 3px;
+    opacity: 0.9;
+}
+
+path {
+    stroke: #364c63;
+    stroke-width: 1px;
+    fill: none;
+}
+
 .axis path,
 .axis line {
     fill: none;
-    stroke: #000;
+    stroke: grey;
+    stroke-width: 0;
     shape-rendering: crispEdges;
+    display: none;
+    color: #9a9a9a;
 }
 
-.x.axis path {
+.grid .tick {
+    stroke: white;
+    stroke-opacity: 0.05;
+    shape-rendering: crispEdges;
+    stroke-width: 0px;
+    display: none;
+}
+.grid path {
+    stroke-width: 0;
     display: none;
 }
 
-.line {
-    fill: none;
-    stroke: steelblue;
-    stroke-width: 1.5px;
+.area {
+    fill: #364c63;
+    opacity: 0.5;
+    stroke-width: 0;
 }

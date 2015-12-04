@@ -12,30 +12,25 @@
         <h1 class="title">Portfolio</h1>
     {{/contentFor}}
 
-
     {{#ionView}}
         {{#ionContent}}
-            <div class="row">
-                <div class="col col-50 col-offset-25">
-                    <div class="card-title">My stocks</div>
-                    <div class="list card">
-                        {{#each items}}
-                            {{#ionItem path="detail" button-right=true data=this avatar=false class="my-class" id="my-id"}}
-                                <div class="stockinfo item-button-right">
-                                    <div class="symbol"> {{symbol}} </div>
-                                    <div class="name"> {{name}} </div>
-                                    <div class="priceAndChange">
-                                        <div class="price" style="color: {{changeColor}};"> {{price}} </div>
-                                        <div class="change" style="background-color: {{changeColor}};"> {{change}} </div>
-                                    </div>
-                                    <button class="button button-clear button-positive button-portfolio">
-                                        <i class="icon ion-minus-circled icon-portfolio"></i>
-                                    </button>
-                                </div>
-                            {{/ionItem}}
-                        {{/each}}
-                    </div>
-                </div>
+            <div class="card-title">My stocks</div>
+            <div class="list card">
+                {{#each items}}
+                    {{#ionItem path="detail" button-right=true data=this avatar=false class="my-class" id="my-id"}}
+                        <div class="stockinfo item-button-right">
+                            <div class="symbol"> {{symbol}} </div>
+                            <div class="name"> {{name}} </div>
+                            <div class="priceAndChange">
+                                <div class="price" style="color: {{changeColor}};"> {{price}} </div>
+                                <div class="change" style="background-color: {{changeColor}};"> {{change}} </div>
+                            </div>
+                            <button class="button button-clear button-positive button-portfolio">
+                                <i class="icon ion-minus-circled icon-portfolio"></i>
+                            </button>
+                        </div>
+                    {{/ionItem}}
+                {{/each}}
             </div>
         {{/ionContent}}
     {{/ionView}}
