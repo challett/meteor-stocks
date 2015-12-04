@@ -19,16 +19,8 @@
                 {{#each items}}
                     {{#ionItem path="detail" button-right=true data=this avatar=false class="my-class" id="my-id"}}
                         <div class="stockinfo item-button-right">
-                            <div class="symbol">
-                                {{#if showSymbol}}
-                                    {{symbol}}
-                                {{/if}}
-                            </div>
-                            <div class="name">
-                                {{#if showName}}
-                                    {{name}}
-                                {{/if}}
-                            </div>
+                            <div class="symbol">{{symbol}}</div>
+                            <div class="name">{{name}}</div>
                             <div class="priceAndChange">
                                 <div class="price" style="color: {{changeColor}};">
                                     {{#if showPrice}}
