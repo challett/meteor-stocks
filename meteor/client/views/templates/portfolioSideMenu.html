@@ -9,12 +9,14 @@
             Close Me {{> ionIcon icon="ios-arrow-right"}}
         </div>
         {{#each item in preference}}
-            {{#autoForm collection="Preferences" type="update" template="ionic" doc=item autosave=true id=item.name}}
-                <fieldset>
-                    {{> afQuickField name='name' hidden=true}}
-                    {{> afQuickField name='showPortfolio' value=item.showPortfolio}}
-                </fieldset>
-            {{/autoForm}}
+            {{#if weHaveData item.name}}
+                {{#autoForm collection="Preferences" type="update" template="ionic" doc=item autosave=true id=item.name}}
+                    <fieldset>
+                        {{> afQuickField name='name' hidden=true}}
+                        {{> afQuickField name='showPortfolio' value=item.showPortfolio}}
+                    </fieldset>
+                {{/autoForm}}
+            {{/if}}
         {{/each}}
     {{/ionList}}
     </div>
