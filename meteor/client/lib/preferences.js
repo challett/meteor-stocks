@@ -13,7 +13,8 @@ PreferencesSchema = new SimpleSchema({
         defaultValue: false,
         autoform: {
             type: 'boolean-checkbox'
-        }
+        },
+        label:' '
     }
 });
 Preferences.attachSchema(PreferencesSchema);
