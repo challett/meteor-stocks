@@ -10,7 +10,6 @@ Template.portfolioSideMenu.events({
 Template.portfolioSideMenu.helpers({
     'stockInfo': function () {
         var stock = Stocks.findOne();
-        console.log(lodash.keys(stock))
         return lodash.keys(stock);
     },
     'weHaveData': function (key) {

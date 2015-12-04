@@ -1,69 +1,63 @@
 /**
  * Created by Connor on 10/30/2015.
  */
-var portfolio = [
-    {
-        _id: '1',
-        symbol: 'GOOG',
-    },
-    {
-        _id: '5',
-        symbol: 'AAPL',
-    },
-    {
-        _id: '4',
-        symbol: 'MSFT',
-    },
-    {
-        _id: '3',
-        symbol: 'TWTR',
-    },
-    {
-        _id: '2',
-        symbol: 'YHOO',
-    },
-];
+
 Template.home.helpers({
-    items: portfolio,
+    items: function () {
+        return Stocks.find()
+    },
     price: function () {
         var stock = Stocks.findOne({symbol: this.symbol});
-        return stock.lastTradePriceOnly;
+        return stock && stock.lastTradePriceOnly;
     },
     change: function () {
         var stock = Stocks.findOne({symbol: this.symbol});
-        return stock.change;
+        return stock && stock.change;
     },
     name: function () {
         var stock = Stocks.findOne({symbol: this.symbol});
-        return stock.name;
+        return stock && stock.name;
     },
     changeStyle: function () {
         var stock = Stocks.findOne({symbol: this.symbol});
-        var change = stock.change;
-        if (change > 0){
-            return 'button-balanced'
-        } else if (change < 0) {
-            return 'button-assertive'
-        } else {
-            return "button-calm"
+        if (stock) {
+            var change = stock.change;
+            if (change > 0){
+                return 'button-balanced'
+            } else if (change < 0) {
+                return 'button-assertive'
+            } else {
+                return "button-calm"
+            }
         }
     },
     changeColor: function () {
         var stock = Stocks.findOne({symbol: this.symbol});
-        var change = stock.change;
-        if (change > 0){
-            return '#2ec76f'
-        } else if (change < 0) {
-            return '#d22d2d'
-        } else {
-            return "#3f5973"
+        if (stock) {
+            var change = stock.change;
+            if (change > 0){
+                return '#2ec76f'
+            } else if (change < 0) {
+                return '#d22d2d'
+            } else {
+                return "#3f5973"
+            }
         }
     }
 
 });
 
 Template.home.rendered = function () {
-    Meteor.call('getQuotes', {symbols: ['GOOG','AAPL','MSFT','TWTR','YHOO'], fields: Fields}, function (err, res) {
-
-    });
+    Meteor.call('getQuotes', {symbols:  Portfolio.find().map( function (object) {
+        return object.symbol
+    }), fields: Fields});
 };
+
+Template.home.events({
+    'click .remove-button': function (event) {
+        event.stopImmediatePropagation();
+        event.preventDefault();
+
+        Portfolio.remove({symbol: this.symbol})
+    }
+});
