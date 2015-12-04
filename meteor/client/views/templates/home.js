@@ -72,14 +72,8 @@ Template.home.helpers({
             }
         }
     },
-    showSymbol: function () {
-        return showElement('symbol')
-    },
     showPrice: function () {
         return showElement('lastTradePriceOnly')
-    },
-    showName: function () {
-        return showElement('name')
     },
     showChange: function () {
         return showElement('change')

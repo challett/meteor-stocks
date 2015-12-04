@@ -22,6 +22,8 @@ Template.portfolioSideMenu.helpers({
                 '_id',
                 'ask',
                 'bid',
+                'name',
+                'symbol',
                 'changeAndPercentChange',
                 'previousClose',
                 'lastTradeDate',
