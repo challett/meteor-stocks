@@ -18,11 +18,39 @@ Template.home.helpers({
         var stock = Stocks.findOne({symbol: this.symbol});
         return stock && stock.name;
     },
+    open: function () {
+        var stock = Stocks.findOne({symbol: this.symbol});
+        return stock && stock.open;
+    },
+    changeInPercent: function () {
+        var stock = Stocks.findOne({symbol: this.symbol});
+        return stock && stock.changeInPercent.toFixed(2);
+    },
+    daysLow: function () {
+        var stock = Stocks.findOne({symbol: this.symbol});
+        return stock && stock.daysLow.toFixed(2);
+    },
+    daysHigh: function () {
+        var stock = Stocks.findOne({symbol: this.symbol});
+        return stock && stock.daysHigh.toFixed(2);
+    },
+    stockExchange: function () {
+        var stock = Stocks.findOne({symbol: this.symbol});
+        return stock && stock.stockExchange;
+    },
+    earningsPerShare: function () {
+        var stock = Stocks.findOne({symbol: this.symbol});
+        return stock && stock.earningsPerShare.toFixed(2);
+    },
+    peRatio: function () {
+        var stock = Stocks.findOne({symbol: this.symbol});
+        return stock && stock.peRatio.toFixed(2);
+    },
     changeStyle: function () {
         var stock = Stocks.findOne({symbol: this.symbol});
         if (stock) {
             var change = stock.change;
-            if (change > 0){
+            if (change > 0) {
                 return 'button-balanced'
             } else if (change < 0) {
                 return 'button-assertive'
@@ -35,7 +63,7 @@ Template.home.helpers({
         var stock = Stocks.findOne({symbol: this.symbol});
         if (stock) {
             var change = stock.change;
-            if (change > 0){
+            if (change > 0) {
                 return '#2ec76f'
             } else if (change < 0) {
                 return '#d22d2d'
@@ -43,8 +71,40 @@ Template.home.helpers({
                 return "#3f5973"
             }
         }
-    }
-
+    },
+    showSymbol: function () {
+        return showElement('symbol')
+    },
+    showPrice: function () {
+        return showElement('lastTradePriceOnly')
+    },
+    showName: function () {
+        return showElement('name')
+    },
+    showChange: function () {
+        return showElement('change')
+    },
+    showOpen: function () {
+        return showElement('open')
+    },
+    showChangeInPercent: function () {
+        return showElement('changeInPercent')
+    },
+    showDaysLow: function () {
+        return showElement('daysLow')
+    },
+    showDaysHigh: function () {
+        return showElement('daysHigh')
+    },
+    showStockExchange: function () {
+        return showElement('stockExchange')
+    },
+    showEarningsPerShare: function () {
+        return showElement('earningsPerShare')
+    },
+    showPERatio: function () {
+        return showElement('peRatio')
+    },
 });
 
 Template.home.rendered = function () {
@@ -61,3 +121,7 @@ Template.home.events({
         Portfolio.remove({symbol: this.symbol})
     }
 });
+
+function showElement (value) {
+    return Preferences.findOne({name: value}).showPortfolio;
+}
