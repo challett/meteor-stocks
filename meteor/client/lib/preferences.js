@@ -5,7 +5,8 @@ Preferences = new Ground.Collection('preferences', {connection: null});
 
 PreferencesSchema = new SimpleSchema({
     name: {
-        type: String
+        type: String,
+        unique: true
     },
     showPortfolio: {
         type: Boolean,
