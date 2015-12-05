@@ -67,19 +67,24 @@ $medFont: #939393;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   color: black;
+  font-size: 1.1em;
 }
-
 .name {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   color: $lightFont;
+  font-size: 1em;
 }
-
+.stockExchange {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  color: $lightFont;
+  font-size: 0.8em;
+}
 .price {
   position: relative;
   width: 100%;
 }
-
 .change {
   color: white;
   width: 100%;
@@ -90,22 +95,50 @@ $medFont: #939393;
   padding: 5px;
   position: relative;
 }
-
 .priceAndChange {
   font-family: 'Roboto', sans-serif;
   font-weight: 600;
   width: 80px;
   text-align: center;
-  position: absolute;
-  top: 10px;
-  right: 50px;
+  position: relative;
+  float: left;
+  display: inline-block;
+}
+
+#wrapper {
+  display: table;
+  width: 100%;
+}
+.cell {
+  display: table-cell;
+  vertical-align: middle;
+  height: auto;
+}
+.content-left {
+  float: left;
+}
+.content-right{
+  float: right;
 }
 
 .icon-portfolio {
   color: $prim;
-  margin: 0 auto;
+}
+.button-portfolio {
+  float: right;
+  margin-right: -15px;
 }
 
-.button-portfolio {
-  margin: 12px -8px;
+.peek {
+  background-color: $prim;
+  color: white;
+  width: auto;
+  height: auto;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  padding: 5px;
+  position: relative;
+  margin: auto auto;
+  display: inline-block;
 }
