@@ -24,7 +24,7 @@
                                 <div class="content-left">
                                     <div class="symbol">{{symbol}}</div>
                                     <div class="name">{{name}}</div>
-                                    <div class="stockExchange">{{#if showStockExchange}}{{stockExchange}}{{/if}}</div>
+                                    <div class="stockExchange">{{stockExchange}}</div>
                                 </div>
                             </div>
                             <div class="cell">
@@ -38,6 +38,11 @@
                                         {{#if showChange}}
                                             <div class="change" style="background-color: {{changeColor}};">
                                                 ${{change}}
+                                            </div>
+                                        {{/if}}
+                                        {{#if showChangeInPercent}}
+                                            <div class="change" style="background-color: {{changeColor}};">
+                                                {{changeInPercent}}%
                                             </div>
                                         {{/if}}
                                     </div>
@@ -54,12 +59,6 @@
                             </div>
                         {{/if}}
 
-                        {{#if showChangeInPercent}}
-                            <div class="peek">
-                                Change: {{changeInPercent}}%
-                            </div>
-                        {{/if}}
-
                         {{#if showDaysLow}}
                             <div class="peek">
                                 Day Low: ${{daysLow}}
@@ -69,18 +68,6 @@
                         {{#if showDaysHigh}}
                             <div class="peek">
                                 Day High: ${{daysHigh}}
-                            </div>
-                        {{/if}}
-
-                        {{#if showEarningsPerShare}}
-                            <div class="peek">
-                                Earnings/share: ${{earningsPerShare}}
-                            </div>
-                        {{/if}}
-
-                        {{#if showPERatio}}
-                            <div class="peek">
-                                PE Ration: {{peRatio}}
                             </div>
                         {{/if}}
 

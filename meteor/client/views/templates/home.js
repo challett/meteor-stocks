@@ -89,16 +89,7 @@ Template.home.helpers({
     },
     showDaysHigh: function () {
         return showElement('daysHigh')
-    },
-    showStockExchange: function () {
-        return showElement('stockExchange')
-    },
-    showEarningsPerShare: function () {
-        return showElement('earningsPerShare')
-    },
-    showPERatio: function () {
-        return showElement('peRatio')
-    },
+    }
 });
 
 Template.home.rendered = function () {

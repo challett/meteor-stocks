@@ -60,6 +60,9 @@ Template.portfolioSideMenu.helpers({
                 'shortRatio',
                 'pegRatio',
                 'epsEstimateNextYear',
+                'stockExchange',
+                'earningsPerShare',
+                'peRatio'
             ];
         return stock[key] && lodash.indexOf(exclude, key) === -1
     },
