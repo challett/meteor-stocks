@@ -62,14 +62,40 @@ Template.home.events({
     'click .remove-button': function (event) {
         event.stopImmediatePropagation();
         event.preventDefault();
-
-        Portfolio.remove({symbol: this.symbol})
+        var self = this;
+        IonPopup.show({
+            title: 'Are you sure?',
+            template: 'Are you sure you want to remove this stock from your portfolio?',
+            buttons: [{
+                text: 'Yes',
+                type: 'button-positive',
+                onTap: function() {
+                    Portfolio.remove({symbol: self.symbol})
+                    IonPopup.close()
+                }
+            },
+                {
+                    text: 'No',
+                    type: 'button-positive',
+                    onTap: function() {
+                        IonPopup.close()
+                }
+            }]
+        });
     },
     'click .add-button': function (event) {
         event.stopImmediatePropagation();
         event.preventDefault();
-
+        var self= this;
+        IonPopup.show({
+            title: 'Success',
+            template: self.symbol + ' has been added to your portfolio',
+            buttons: []
+        });
         Portfolio.insert({symbol: this.symbol})
+        setTimeout(function () {
+            IonPopup.close();
+        }.bind(this), 1000)
     }
 });
 

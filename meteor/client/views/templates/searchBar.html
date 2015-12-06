@@ -1,5 +1,10 @@
 <template name="searchBar">
-    <label class="item item-input">
-        <input type="text" placeholder="Search for stocks" value="" id="searchBar">
-    </label>
+        <label class="item item-input">
+            {{#if searchKey}}
+                <i class="icon ion-close-circled remove-search"></i>
+            {{else}}
+                <i class="icon ion-search placeholder-icon"></i>
+            {{/if}}
+            <input type="text" placeholder="Search for stocks" value={{searchKey}} id="searchBar">
+        </label>
 </template>
