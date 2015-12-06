@@ -31,12 +31,12 @@
                                 <div class="content-right">
                                     <div class="priceAndChange">
                                         <div class="price" style="color: {{changeColor}};">
-                                            ${{price}}
+                                            ${{stockNumber 'lastTradePriceOnly'}}
                                         </div>
                                         <div class="change" style="background-color: {{changeColor}};">
-                                            ${{change}}
+                                            ${{stockNumber 'change'}}
                                             <br>
-                                            ({{changeInPercent}}%)
+                                            ({{stockNumber 'changeInPercent'}}%)
                                         </div>
                                     </div>
                                     <button class="button button-clear button-positive button-portfolio remove-button">
@@ -46,26 +46,30 @@
                             </div>
                         </div>
                         <div class="list-footer">
-                            {{#if showElement 'open'}}
-                                <div class="peek">
-                                    Open <b>${{open}}</b>
-                                </div>
-                            {{/if}}
-                            {{#if showElement 'daysLow'}}
-                                <div class="peek">
-                                    Day Low <b>${{daysLow}}</b>
-                                </div>
-                            {{/if}}
-                            {{#if showElement 'daysHigh'}}
-                                <div class="peek">
-                                    Day High <b>${{daysHigh}}</b>
-                                </div>
-                            {{/if}}
-                            {{#if showElement 'previousClose'}}
-                                <div class="peek">
-                                    Day High <b>${{previousClose}}</b>
-                                </div>
-                            {{/if}}
+                            <div class="row">
+                                {{#if showElement 'daysHigh'}}
+                                    <div class="peek col-50">
+                                        Day High <b>${{stockNumber 'daysHigh'}}</b>
+                                    </div>
+                                {{/if}}
+                                {{#if showElement 'open'}}
+                                    <div class="peek col-50">
+                                        Open <b>${{stockNumber 'open'}}</b>
+                                    </div>
+                                {{/if}}
+                            </div>
+                            <div class="row">
+                                {{#if showElement 'daysLow'}}
+                                    <div class="peek col-50">
+                                        Day Low <b>${{stockNumber 'daysLow'}}</b>
+                                    </div>
+                                {{/if}}
+                                {{#if showElement 'previousClose'}}
+                                    <div class="peek col-50">
+                                       Previous Close <b>${{stockNumber 'previousClose'}}</b>
+                                    </div>
+                                {{/if}}
+                            </div>
                         </div>
                     {{/ionItem}}
                 {{/each}}

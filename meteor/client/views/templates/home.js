@@ -12,18 +12,6 @@ Template.home.helpers({
     searched: function () {
         return Session.get('searchKey')
     },
-    price: function () {
-        var stock = this;
-        return stock && stock.lastTradePriceOnly && stock.lastTradePriceOnly.toFixed(2);
-    },
-    change: function () {
-        var stock = this;
-        return stock && stock.change && stock.change.toFixed(2);
-    },
-    changeInPercent: function () {
-        var stock = this;
-        return (stock && stock.changeInPercent && stock.changeInPercent.toFixed(2)) || 0;
-    },
     name: function () {
         var stock = this;
         return stock && stock.name;
@@ -55,6 +43,9 @@ Template.home.helpers({
     peRatio: function () {
         var stock = this;
         return stock && stock.peRatio && stock.peRatio.toFixed(2);
+    },
+    stockNumber: function (key) {
+        return this && this[key] && this[key].toFixed(2)
     },
     changeStyle: function () {
         var stock = this;
