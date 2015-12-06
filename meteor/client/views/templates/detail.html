@@ -35,14 +35,16 @@
 
             {{#each field in fields}}
                 {{#if stockFieldValue field}}
-                    <div class="card detail-card detail-card-title">
-                        <div class="item item-divider item-divider-title">
-                            {{field}}
+                    {{#if showElement field}}
+                        <div class="card detail-card detail-card-title">
+                            <div class="item item-divider item-divider-title">
+                                {{field}}
+                            </div>
+                            <div class="item item-text-wrap item-text-wrap-title">
+                                {{stockFieldValue field}}
+                            </div>
                         </div>
-                        <div class="item item-text-wrap item-text-wrap-title">
-                            {{stockFieldValue field}}
-                        </div>
-                    </div>
+                    {{/if}}
                 {{/if}}
             {{/each}}
 

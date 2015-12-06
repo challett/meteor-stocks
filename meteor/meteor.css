@@ -11,8 +11,11 @@ text.shadow {
     opacity: 0.9;
 }
 
+text {
+    stroke: white
+}
 path {
-    stroke: #364c63;
+    stroke: white;
     stroke-width: 1px;
     fill: none;
 }

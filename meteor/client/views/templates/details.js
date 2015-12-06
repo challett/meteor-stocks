@@ -5,6 +5,10 @@ Template.detail.helpers({
     fields: NamedFields,
     stockFieldValue: function (fieldName) {
         return (this.stock[fieldName])
+    },
+    showElement: function (name) {
+        return Preferences.findOne({name: name}).showDetail;
+
     }
 });
 

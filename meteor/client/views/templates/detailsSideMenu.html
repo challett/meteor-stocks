@@ -3,10 +3,28 @@
         <h1 class="title">Options</h1>
     </div>
     <div class="content has-header">
-        <div class="list">
+        {{#ionList class="my-class"}}
             <div class="item item-icon-right" data-ion-menu-close>
-                Close Me (details) {{> ionIcon icon="ios-arrow-right"}}
+                Close Me {{> ionIcon icon="ios-arrow-right"}}
             </div>
-        </div>
+            {{#each item in preference}}
+                    {{#if weHaveData item.name}}
+                        {{#autoForm collection="Preferences" type="update" template="ionic" doc=item autosave=true id=item.name label=false}}
+                            <fieldset>
+                                <div class="row">
+
+                                    <div class="col col-75">
+                                        {{> afQuickField name='name' hidden=true label=false}}
+                                    </div>
+                                    <div class="col">
+                                        {{> afQuickField name='showDetail' value=item.showDetail trueLabel="Yes" falseLabel="No"}}
+                                    </div>
+                                </div>
+
+                            </fieldset>
+                        {{/autoForm}}
+                {{/if}}
+            {{/each}}
+        {{/ionList}}
     </div>
 </template>
