@@ -10,10 +10,12 @@ Meteor.startup( function () {
                     data = results.data;
                     console.log('done')
 
+                },
+                error: function (err) {
+                    console.log('error parsing csv',err)
                 }
             });
             Stocks.rawCollection().insert(data, function (err,res) {
-                console.log(err, res)
             })
         }
     }

@@ -8,14 +8,18 @@ Template.searchResults.rendered = function () {
 Template.searchResults.helpers({
     'searchResult': function () {
         var searchKey = Session.get('searchKey').toUpperCase();
-        var searchRegex = '^'+searchKey+'.*';
+        var searchRegex = '^' + searchKey + '.*';
         var sort = Preferences.findOne({name: 'sort'}).sort;
         var sortOptions = {};
-        sortOptions[sort] = sort === 'lastTradePriceOnly' ? -1 : 1;
+        if (sort) {
+            sortOptions[sort] = sort === 'lastTradePriceOnly' ? -1 : 1;
+        } else {
+            Preferences.upsert({name: sort}, {$set: {name: sort, sort: 'name'}})
+        }
         Meteor.call('getQuotes', {symbols:  Stocks.find().map( function (object) {
             return object.symbol
         }), fields: Fields})
-        return Stocks.find({symbol: {$regex: searchRegex}, lastTradePriceOnly: {$ne: null}, symbol: {$not: {$in: Portfolio.find().map(function (stock) {return stock.symbol})}}}, {limit: 5, sort: sortOptions})
+        return Stocks.find({$and: [{symbol: {$regex: searchRegex}}, {lastTradePriceOnly: {$ne: null}}, {symbol: {$not: {$in: Portfolio.find().map(function (stock) {return stock.symbol})}}}]}, {limit: 5, sort: sortOptions})
     },
     searched: function () {
         return Session.get('searchKey')
