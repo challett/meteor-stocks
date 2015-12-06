@@ -2,15 +2,16 @@
  * Created by Connor on 12/6/2015.
  */
 Template.searchResults.rendered = function () {
-    Meteor.call('getQuotes', {symbols:  Stocks.find().map( function (object) {
-        return object.symbol
-    }), fields: Fields})
+
 };
 
 Template.searchResults.helpers({
     'searchResult': function () {
         var searchKey = Session.get('searchKey').toUpperCase();
         var searchRegex = '^'+searchKey+'.*';
+        Meteor.call('getQuotes', {symbols:  Stocks.find().map( function (object) {
+            return object.symbol
+        }), fields: Fields})
         return Stocks.find({symbol: {$regex: searchRegex}, symbol: {$not: {$in: Portfolio.find().map(function (stock) {return stock.symbol})}}}, {limit: 5})
     },
     searched: function () {
