@@ -12,7 +12,7 @@ Template.searchResults.helpers({
         Meteor.call('getQuotes', {symbols:  Stocks.find().map( function (object) {
             return object.symbol
         }), fields: Fields})
-        return Stocks.find({symbol: {$regex: searchRegex}, symbol: {$not: {$in: Portfolio.find().map(function (stock) {return stock.symbol})}}}, {limit: 5})
+        return Stocks.find({symbol: {$regex: searchRegex}, lastTradePriceOnly: {$ne: null}, symbol: {$not: {$in: Portfolio.find().map(function (stock) {return stock.symbol})}}}, {limit: 5})
     },
     searched: function () {
         return Session.get('searchKey')
@@ -83,26 +83,7 @@ Template.searchResults.helpers({
             }
         }
     },
-    showPrice: function () {
-        return showElement('lastTradePriceOnly')
-    },
-    showChange: function () {
-        return showElement('change')
-    },
-    showOpen: function () {
-        return showElement('open')
-    },
-    showChangeInPercent: function () {
-        return showElement('changeInPercent')
-    },
-    showDaysLow: function () {
-        return showElement('daysLow')
-    },
-    showDaysHigh: function () {
-        return showElement('daysHigh')
-    },
+    showElement: function (element) {
+        return Preferences.findOne({name: element}).showPortfolio;
+    }
 });
-
-function showElement (value) {
-    return Preferences.findOne({name: value}).showPortfolio;
-}

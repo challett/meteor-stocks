@@ -78,24 +78,9 @@ Template.home.helpers({
             }
         }
     },
-    showPrice: function () {
-        return showElement('lastTradePriceOnly')
-    },
-    showChange: function () {
-        return showElement('change')
-    },
-    showOpen: function () {
-        return showElement('open')
-    },
-    showChangeInPercent: function () {
-        return showElement('changeInPercent')
-    },
-    showDaysLow: function () {
-        return showElement('daysLow')
-    },
-    showDaysHigh: function () {
-        return showElement('daysHigh')
-    },
+    showElement: function (element) {
+        return Preferences.findOne({name: element}).showPortfolio;
+    }
 
 });
 
@@ -120,10 +105,6 @@ Template.home.events({
     }
 });
 
-function showElement (value) {
-    return Preferences.findOne({name: value}).showPortfolio;
-}
-
 Template.home.created = function () {
     Session.set('searchKey', '')
-}
+};

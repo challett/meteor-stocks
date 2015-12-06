@@ -19,13 +19,20 @@ Template.portfolioSideMenu.helpers({
                 *These are options that we do NOT want in our side bar.
                 */
                 
-                '_id',
+                '_id',,
+                'changeInPercent',
+                'change',
+                'price',
+                'dividendYield',
+                'lastTradePriceOnly',
+                'dividendPerShare',
+                'dividendPayDate',
+                'exDividendDate',
                 'ask',
                 'bid',
                 'name',
                 'symbol',
                 'changeAndPercentChange',
-                'previousClose',
                 'lastTradeDate',
                 'lastTradeTime',
                 'lastTradeWithTime',

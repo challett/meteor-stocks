@@ -30,19 +30,13 @@
                             <div class="cell">
                                 <div class="content-right">
                                     <div class="priceAndChange">
-                                        {{#if showPrice}}
-                                            <div class="price" style="color: {{changeColor}};">
-                                                ${{price}}
-                                            </div>
-                                        {{/if}}
+                                        <div class="price" style="color: {{changeColor}};">
+                                            ${{price}}
+                                        </div>
                                         <div class="change" style="background-color: {{changeColor}};">
-                                            {{#if showChange}}
-                                                ${{change}}
-                                                <br>
-                                            {{/if}}
-                                            {{#if showChangeInPercent}}
-                                                {{changeInPercent}}%
-                                            {{/if}}
+                                            ${{change}}
+                                            <br>
+                                            ({{changeInPercent}}%)
                                         </div>
                                     </div>
                                     <button class="button button-clear button-positive button-portfolio remove-button">
@@ -52,17 +46,17 @@
                             </div>
                         </div>
                         <div class="list-footer">
-                            {{#if showOpen}}
+                            {{#if showElement 'open'}}
                                 <div class="peek">
                                     Open <b>${{open}}</b>
                                 </div>
                             {{/if}}
-                            {{#if showDaysLow}}
+                            {{#if showElement 'daysLow'}}
                                 <div class="peek">
                                     Day Low <b>${{daysLow}}</b>
                                 </div>
                             {{/if}}
-                            {{#if showDaysHigh}}
+                            {{#if showElement 'daysHigh'}}
                                 <div class="peek">
                                     Day High <b>${{daysHigh}}</b>
                                 </div>
