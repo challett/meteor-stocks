@@ -13,47 +13,51 @@ Template.home.helpers({
         return Session.get('searchKey')
     },
     price: function () {
-        var stock = Stocks.findOne({symbol: this.symbol});
+        var stock = this;
         return stock && stock.lastTradePriceOnly && stock.lastTradePriceOnly.toFixed(2);
     },
     change: function () {
-        var stock = Stocks.findOne({symbol: this.symbol});
+        var stock = this;
         return stock && stock.change && stock.change.toFixed(2);
     },
     changeInPercent: function () {
-        var stock = Stocks.findOne({symbol: this.symbol});
+        var stock = this;
         return (stock && stock.changeInPercent && stock.changeInPercent.toFixed(2)) || 0;
     },
     name: function () {
-        var stock = Stocks.findOne({symbol: this.symbol});
+        var stock = this;
         return stock && stock.name;
     },
     open: function () {
-        var stock = Stocks.findOne({symbol: this.symbol});
+        var stock = this ;
         return stock && stock.open;
     },
     daysLow: function () {
-        var stock = Stocks.findOne({symbol: this.symbol});
+        var stock = this;
         return stock && stock.daysLow && stock.daysLow.toFixed(2);
     },
     daysHigh: function () {
-        var stock = Stocks.findOne({symbol: this.symbol});
+        var stock = this;
         return stock && stock.daysHigh && stock.daysHigh.toFixed(2);
     },
     stockExchange: function () {
-        var stock = Stocks.findOne({symbol: this.symbol});
+        var stock = this;
         return stock && stock.stockExchange;
     },
     earningsPerShare: function () {
-        var stock = Stocks.findOne({symbol: this.symbol});
+        var stock = this;
         return stock && stock.earningsPerShare && stock.earningsPerShare.toFixed(2);
     },
+    previousClose: function () {
+        var stock = this;
+        return stock && stock.previousClose && stock.previousClose.toFixed(2);
+    },
     peRatio: function () {
-        var stock = Stocks.findOne({symbol: this.symbol});
+        var stock = this;
         return stock && stock.peRatio && stock.peRatio.toFixed(2);
     },
     changeStyle: function () {
-        var stock = Stocks.findOne({symbol: this.symbol});
+        var stock = this;
         if (stock && stock.change) {
             var change = stock.change;
             if (change > 0) {
@@ -66,7 +70,7 @@ Template.home.helpers({
         }
     },
     changeColor: function () {
-        var stock = Stocks.findOne({symbol: this.symbol});
+        var stock = this;
         if (stock) {
             var change = stock.change;
             if (change > 0) {

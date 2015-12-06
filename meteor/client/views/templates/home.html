@@ -61,6 +61,11 @@
                                     Day High <b>${{daysHigh}}</b>
                                 </div>
                             {{/if}}
+                            {{#if showElement 'previousClose'}}
+                                <div class="peek">
+                                    Day High <b>${{previousClose}}</b>
+                                </div>
+                            {{/if}}
                         </div>
                     {{/ionItem}}
                 {{/each}}
