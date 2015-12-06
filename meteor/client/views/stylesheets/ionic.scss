@@ -9,6 +9,8 @@ $card: #ffffff;
 $searchBkgd: #fafafa;
 $lightFont: #9a9a9a;
 $medFont: #939393;
+$drkFont: #BDBDBD;
+$footer: #F5F5F5;
 
 .navBar {
   background-color: $prim;
@@ -27,6 +29,9 @@ $medFont: #939393;
 
 .card {
   position: relative;
+}
+.item {
+  padding: 0 !important;
 }
 
 .detail-card-title {
@@ -116,9 +121,11 @@ $medFont: #939393;
 }
 .content-left {
   float: left;
+  margin: 16px;
 }
 .content-right{
   float: right;
+  margin: 16px;
 }
 
 .icon-portfolio {
@@ -130,15 +137,22 @@ $medFont: #939393;
 }
 
 .peek {
-  background-color: $prim;
-  color: white;
-  width: auto;
+  color: $drkFont;
+  width: 32%;
   height: auto;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  border-radius: 2px;
-  padding: 5px;
   position: relative;
-  margin: auto auto;
   display: inline-block;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 0.7em;
+  text-align: center;
+  padding: 1px;
+}
+.list-footer {
+  background-color: $footer;
+  width: 100%;
+  height: auto;
+  padding: 5px;
+  display: inline-block;
+  bottom: 0;
 }

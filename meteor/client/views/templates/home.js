@@ -14,6 +14,10 @@ Template.home.helpers({
         var stock = Stocks.findOne({symbol: this.symbol});
         return stock && stock.change.toFixed(2);
     },
+    changeInPercent: function () {
+        var stock = Stocks.findOne({symbol: this.symbol});
+        return stock && stock.changeInPercent.toFixed(2);
+    },
     name: function () {
         var stock = Stocks.findOne({symbol: this.symbol});
         return stock && stock.name;
@@ -21,10 +25,6 @@ Template.home.helpers({
     open: function () {
         var stock = Stocks.findOne({symbol: this.symbol});
         return stock && stock.open;
-    },
-    changeInPercent: function () {
-        var stock = Stocks.findOne({symbol: this.symbol});
-        return stock && stock.changeInPercent.toFixed(2);
     },
     daysLow: function () {
         var stock = Stocks.findOne({symbol: this.symbol});
