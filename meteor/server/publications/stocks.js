@@ -8,7 +8,7 @@ Meteor.publish('portfolioStocks', function (params) {
 Meteor.publish('searchStocks', function (params) {
     var searchKey = params.searchKey.toUpperCase();
     var searchRegex = '^'+searchKey+'.*';
-    return Stocks.find({symbol: {$regex: searchRegex}}, {limit: 5, sort: {symbol: 1}})
+    return Stocks.find({$or: [{symbol: {$regex: searchRegex}}, {nameUpperCase: {$regex: searchRegex}}]}, {limit: 5, sort: {symbol: 1}})
 });
 
 Meteor.publish('stockBySymbol', function (params) {

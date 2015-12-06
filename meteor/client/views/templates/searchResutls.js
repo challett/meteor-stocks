@@ -19,7 +19,7 @@ Template.searchResults.helpers({
         Meteor.call('getQuotes', {symbols:  Stocks.find().map( function (object) {
             return object.symbol
         }), fields: Fields})
-        return Stocks.find({$and: [{symbol: {$regex: searchRegex}}, {lastTradePriceOnly: {$ne: null}}, {symbol: {$not: {$in: Portfolio.find().map(function (stock) {return stock.symbol})}}}]}, {limit: 5, sort: sortOptions})
+        return Stocks.find({$and: [{$or: [{symbol: {$regex: searchRegex}}, {nameUpperCase: {$regex: searchRegex}}]}, {lastTradePriceOnly: {$ne: null}}, {symbol: {$not: {$in: Portfolio.find().map(function (stock) {return stock.symbol})}}}]}, {limit: 5, sort: sortOptions})
     },
     searched: function () {
         return Session.get('searchKey')

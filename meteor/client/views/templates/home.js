@@ -14,7 +14,7 @@ Template.home.helpers({
         });
         return Stocks.find({$and: [
             {symbol: {$in: portfolioSymbols}},
-            {symbol: {$regex: searchRegex}}
+            {$or: [{symbol: {$regex: searchRegex}}, {nameUpperCase: {$regex: searchRegex}}]}
         ]},{sort: sortOptions})
     },
     searched: function () {

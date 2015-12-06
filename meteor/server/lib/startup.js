@@ -4,7 +4,7 @@
 Meteor.startup( function () {
         if(Stocks.find().count() === 0) {
             var data;
-            Papa.parse(Assets.getText('symbols.csv'), {
+            Papa.parse(Assets.getText('symbols-names-uppercase.csv'), {
                 header: true,
                 complete: function(results) {
                     data = results.data;
