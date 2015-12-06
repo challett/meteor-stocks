@@ -3,6 +3,4 @@
  */
 Meteor.startup(function () {
 
-    Symbols = [];
-
 });

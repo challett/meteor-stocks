@@ -15,5 +15,10 @@ Template.appLayout.created = function () {
                 name: value,
             }, {$set: {name: value}})
         });
+        Preferences.upsert({
+            name: 'sort'
+        },{
+            $set: {name: 'sort' , sort: 'name'}
+        })
     }
 };

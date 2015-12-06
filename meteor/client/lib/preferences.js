@@ -25,6 +25,22 @@ PreferencesSchema = new SimpleSchema({
             type: 'boolean-checkbox'
         },
         label:' '
+    },
+    sort: {
+        type: String,
+        allowedValues: [
+            'name', 'symbol', 'lastTradePriceOnly'
+        ],
+        autoform: {
+            type: 'select-radio',
+            options:
+                {
+                    name: 'Name',
+                    symbol: 'Symbol',
+                    lastTradePriceOnly: 'Price'
+                },
+        },
+        optional: true
     }
 });
 Preferences.attachSchema(PreferencesSchema);

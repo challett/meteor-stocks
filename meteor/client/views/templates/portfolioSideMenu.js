@@ -79,5 +79,8 @@ Template.portfolioSideMenu.helpers({
     preference: function () {
         return Preferences.find();
     },
+    sortingPreference: function () {
+        return Preferences.findOne({name: 'sort'})
+    }
 
 });

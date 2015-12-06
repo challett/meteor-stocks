@@ -6,13 +6,16 @@ Template.home.helpers({
     portfolioStock: function () {
         var searchKey = Session.get('searchKey').toUpperCase();
         var searchRegex = '^'+searchKey+'.*';
+        var sort = Preferences.findOne({name: 'sort'}).sort;
+        var sortOptions = {};
+        sortOptions[sort] = sort === 'lastTradePriceOnly' ? -1 : 1;
         var portfolioSymbols = Portfolio.find().map(function (stock) {
             return stock.symbol
         });
         return Stocks.find({$and: [
             {symbol: {$in: portfolioSymbols}},
             {symbol: {$regex: searchRegex}}
-        ]})
+        ]},{sort: sortOptions})
     },
     searched: function () {
         return Session.get('searchKey')
