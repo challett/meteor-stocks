@@ -72,6 +72,16 @@
                             </div>
                         </div>
                     {{/ionItem}}
+                {{else}}
+                    {{#unless searched}}
+                        {{#ionItem}}
+                            Your portfolio is empty, search for a stock to get started
+                        {{/ionItem}}
+                    {{else}}
+                        {{#ionItem}}
+                            tap on the <i class="icon ion-plus-circled icon-portfolio"></i> to add a stock
+                        {{/ionItem}}
+                    {{/unless}}
                 {{/each}}
                 {{#if searched}}
                     {{> searchResults}}
