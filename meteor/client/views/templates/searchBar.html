@@ -1,10 +1,11 @@
 <template name="searchBar">
-        <label class="item item-input">
-            {{#if searchKey}}
-                <i class="icon ion-close-circled remove-search"></i>
-            {{else}}
-                <i class="icon ion-search placeholder-icon"></i>
-            {{/if}}
+    <div class="bar bar-header item-input-inset">
+        <label class="item-input-wrapper">
+            <i class="icon ion-ios-search placeholder-icon"></i>
             <input type="text" placeholder="Search for stocks" value={{searchKey}} id="searchBar">
         </label>
+        <button class="button button-clear remove-search">
+            Clear
+        </button>
+    </div>
 </template>
