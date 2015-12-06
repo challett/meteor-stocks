@@ -12,12 +12,12 @@
         <h1 class="title">Portfolio</h1>
     {{/contentFor}}
 
+    {{>searchBar}}
+
     {{#ionView}}
         {{#ionContent}}
-            <div class="card-title">My stocks</div>
-            <div class="list card">
-                {{>searchBar}}
-                {{#if Template.subscriptionsReady}}
+                <div class="card-title">My stocks</div>
+                <div class="list card">
                     {{#each portfolioStock}}
                         {{#ionItem path="detail" button-right=true data=this avatar=false class="my-class" id="my-id"}}
                             <div id="wrapper">
@@ -27,8 +27,6 @@
                                         <div class="name">{{name}}</div>
                                         <div class="stockExchange">{{stockExchange}}</div>
                                     </div>
-                                </div>
-                                <div class="cell">
                                     <div class="content-right">
                                         <div class="priceAndChange">
                                             <div class="price" style="color: {{changeColor}};">
@@ -49,25 +47,23 @@
                             <div class="list-footer">
                                 <div class="row">
                                     {{#if showElement 'daysHigh'}}
-                                        <div class="peek col-50">
-                                            Day High <b>${{stockNumber 'daysHigh'}}</b>
+                                        <div class="peek col-25">
+                                            High <b>${{stockNumber 'daysHigh'}}</b>
+                                        </div>
+                                    {{/if}}
+                                    {{#if showElement 'daysLow'}}
+                                        <div class="peek col-25">
+                                            Low <b>${{stockNumber 'daysLow'}}</b>
                                         </div>
                                     {{/if}}
                                     {{#if showElement 'open'}}
-                                        <div class="peek col-50">
+                                        <div class="peek col-25">
                                             Open <b>${{stockNumber 'open'}}</b>
                                         </div>
                                     {{/if}}
-                                </div>
-                                <div class="row">
-                                    {{#if showElement 'daysLow'}}
-                                        <div class="peek col-50">
-                                            Day Low <b>${{stockNumber 'daysLow'}}</b>
-                                        </div>
-                                    {{/if}}
                                     {{#if showElement 'previousClose'}}
-                                        <div class="peek col-50">
-                                           Previous Close <b>${{stockNumber 'previousClose'}}</b>
+                                        <div class="peek col-25">
+                                           Close <b>${{stockNumber 'previousClose'}}</b>
                                         </div>
                                     {{/if}}
                                 </div>
@@ -76,21 +72,28 @@
                     {{else}}
                         {{#unless searched}}
                             {{#ionItem}}
-                                Your portfolio is empty, search for a stock to get started
+                                <div class="item item-text-wrap portfolio-empty">
+                                    Your portfolio is empty. Search for a stock to get started!
+                                </div>
                             {{/ionItem}}
                         {{else}}
                             {{#ionItem}}
-                                tap on the <i class="icon ion-plus-circled icon-portfolio"></i> to add a stock
+                                <div class="item item-text-wrap portfolio-empty">
+                                    Tap on <i class="icon ion-plus-circled icon-portfolio"></i> to add a stock to your portfolio.
+                                </div>
                             {{/ionItem}}
                         {{/unless}}
                     {{/each}}
-                    {{#if searched}}
+                </div>
+
+                {{#if searched}}
+                    {{#if Template.subscriptionsReady}}
                         {{> searchResults}}
+                    {{else}}
+                        loading
                     {{/if}}
-                {{else}}
-                    loading
                 {{/if}}
-            </div>
+
         {{/ionContent}}
     {{/ionView}}
 
