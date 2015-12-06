@@ -11,7 +11,7 @@ Template.searchResults.helpers({
     'searchResult': function () {
         var searchKey = Session.get('searchKey').toUpperCase();
         var searchRegex = '^'+searchKey+'.*';
-        return Stocks.find({symbol: {$regex: searchRegex}, symbol: {$not: {$in: Portfolio.find().map(function (stock) {return stock.symbol})}}, lastTradePriceOnly: {$ne: null}}, {limit: 5})
+        return Stocks.find({symbol: {$regex: searchRegex}, symbol: {$not: {$in: Portfolio.find().map(function (stock) {return stock.symbol})}}}, {limit: 5})
     },
     searched: function () {
         return Session.get('searchKey')
