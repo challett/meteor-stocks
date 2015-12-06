@@ -22,10 +22,5 @@ Template.searchBar.helpers({
 });
 
 Template.searchBar.created = function () {
-    var self = this;
 
-    self.autorun(function () {
-        if(Session.get('searchKey'))
-        self.subscribe('searchStocks', {searchKey: Session.get('searchKey')})
-    })
 };

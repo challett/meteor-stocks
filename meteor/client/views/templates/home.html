@@ -17,74 +17,78 @@
             <div class="card-title">My stocks</div>
             <div class="list card">
                 {{>searchBar}}
-                {{#each portfolioStock}}
-                    {{#ionItem path="detail" button-right=true data=this avatar=false class="my-class" id="my-id"}}
-                        <div id="wrapper">
-                            <div class="cell">
-                                <div class="content-left">
-                                    <div class="symbol">{{symbol}}</div>
-                                    <div class="name">{{name}}</div>
-                                    <div class="stockExchange">{{stockExchange}}</div>
+                {{#if Template.subscriptionsReady}}
+                    {{#each portfolioStock}}
+                        {{#ionItem path="detail" button-right=true data=this avatar=false class="my-class" id="my-id"}}
+                            <div id="wrapper">
+                                <div class="cell">
+                                    <div class="content-left">
+                                        <div class="symbol">{{symbol}}</div>
+                                        <div class="name">{{name}}</div>
+                                        <div class="stockExchange">{{stockExchange}}</div>
+                                    </div>
+                                </div>
+                                <div class="cell">
+                                    <div class="content-right">
+                                        <div class="priceAndChange">
+                                            <div class="price" style="color: {{changeColor}};">
+                                                ${{stockNumber 'lastTradePriceOnly'}}
+                                            </div>
+                                            <div class="change" style="background-color: {{changeColor}};">
+                                                ${{stockNumber 'change'}}
+                                                <br>
+                                                ({{stockNumber 'changeInPercent'}}%)
+                                            </div>
+                                        </div>
+                                        <button class="button button-clear button-positive button-portfolio remove-button">
+                                            <i class="icon ion-minus-circled icon-portfolio"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="cell">
-                                <div class="content-right">
-                                    <div class="priceAndChange">
-                                        <div class="price" style="color: {{changeColor}};">
-                                            ${{stockNumber 'lastTradePriceOnly'}}
+                            <div class="list-footer">
+                                <div class="row">
+                                    {{#if showElement 'daysHigh'}}
+                                        <div class="peek col-50">
+                                            Day High <b>${{stockNumber 'daysHigh'}}</b>
                                         </div>
-                                        <div class="change" style="background-color: {{changeColor}};">
-                                            ${{stockNumber 'change'}}
-                                            <br>
-                                            ({{stockNumber 'changeInPercent'}}%)
+                                    {{/if}}
+                                    {{#if showElement 'open'}}
+                                        <div class="peek col-50">
+                                            Open <b>${{stockNumber 'open'}}</b>
                                         </div>
-                                    </div>
-                                    <button class="button button-clear button-positive button-portfolio remove-button">
-                                        <i class="icon ion-minus-circled icon-portfolio"></i>
-                                    </button>
+                                    {{/if}}
+                                </div>
+                                <div class="row">
+                                    {{#if showElement 'daysLow'}}
+                                        <div class="peek col-50">
+                                            Day Low <b>${{stockNumber 'daysLow'}}</b>
+                                        </div>
+                                    {{/if}}
+                                    {{#if showElement 'previousClose'}}
+                                        <div class="peek col-50">
+                                           Previous Close <b>${{stockNumber 'previousClose'}}</b>
+                                        </div>
+                                    {{/if}}
                                 </div>
                             </div>
-                        </div>
-                        <div class="list-footer">
-                            <div class="row">
-                                {{#if showElement 'daysHigh'}}
-                                    <div class="peek col-50">
-                                        Day High <b>${{stockNumber 'daysHigh'}}</b>
-                                    </div>
-                                {{/if}}
-                                {{#if showElement 'open'}}
-                                    <div class="peek col-50">
-                                        Open <b>${{stockNumber 'open'}}</b>
-                                    </div>
-                                {{/if}}
-                            </div>
-                            <div class="row">
-                                {{#if showElement 'daysLow'}}
-                                    <div class="peek col-50">
-                                        Day Low <b>${{stockNumber 'daysLow'}}</b>
-                                    </div>
-                                {{/if}}
-                                {{#if showElement 'previousClose'}}
-                                    <div class="peek col-50">
-                                       Previous Close <b>${{stockNumber 'previousClose'}}</b>
-                                    </div>
-                                {{/if}}
-                            </div>
-                        </div>
-                    {{/ionItem}}
-                {{else}}
-                    {{#unless searched}}
-                        {{#ionItem}}
-                            Your portfolio is empty, search for a stock to get started
                         {{/ionItem}}
                     {{else}}
-                        {{#ionItem}}
-                            tap on the <i class="icon ion-plus-circled icon-portfolio"></i> to add a stock
-                        {{/ionItem}}
-                    {{/unless}}
-                {{/each}}
-                {{#if searched}}
-                    {{> searchResults}}
+                        {{#unless searched}}
+                            {{#ionItem}}
+                                Your portfolio is empty, search for a stock to get started
+                            {{/ionItem}}
+                        {{else}}
+                            {{#ionItem}}
+                                tap on the <i class="icon ion-plus-circled icon-portfolio"></i> to add a stock
+                            {{/ionItem}}
+                        {{/unless}}
+                    {{/each}}
+                    {{#if searched}}
+                        {{> searchResults}}
+                    {{/if}}
+                {{else}}
+                    loading
                 {{/if}}
             </div>
         {{/ionContent}}

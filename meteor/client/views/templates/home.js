@@ -104,4 +104,10 @@ Template.home.events({
 
 Template.home.created = function () {
     Session.set('searchKey', '')
+    var self = this;
+
+    self.autorun(function () {
+        if(Session.get('searchKey'))
+            self.subscribe('searchStocks', {searchKey: Session.get('searchKey')})
+    })
 };
