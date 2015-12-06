@@ -16,6 +16,7 @@
         {{#ionContent}}
             <div class="card-title">My stocks</div>
             <div class="list card">
+                {{>searchBar}}
                 {{#each items}}
                     {{#ionItem path="detail" button-right=true data=this avatar=false class="my-class" id="my-id"}}
 

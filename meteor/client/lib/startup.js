@@ -4,11 +4,5 @@
 Meteor.startup(function () {
 
     Symbols = [];
-    Papa.parse('symbols.csv', {
-        download: true,
-        header: true,
-        complete: function(results) {
-            Symbols = results.data;
-        }
-    });
+
 });
