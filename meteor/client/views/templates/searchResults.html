@@ -56,5 +56,9 @@
                 </div>
             </div>
         {{/ionItem}}
+    {{else}}
+        {{#ionItem}}
+            No results found for {{searched}}
+        {{/ionItem}}
     {{/each}}
 </template>
