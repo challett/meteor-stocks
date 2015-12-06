@@ -67,7 +67,7 @@ Template.home.events({
         event.preventDefault();
         var self = this;
         IonPopup.show({
-            title: 'Are you sure?',
+            title: 'Are You Sure?',
             template: 'Are you sure you want to remove this stock from your portfolio?',
             buttons: [{
                 text: 'Yes',
@@ -91,14 +91,14 @@ Template.home.events({
         event.preventDefault();
         var self= this;
         IonPopup.show({
-            title: 'Success',
-            template: self.symbol + ' has been added to your portfolio',
+            title: 'Stock Added',
+            template: self.symbol + ' has been added to your portfolio!',
             buttons: []
         });
         Portfolio.insert({symbol: this.symbol})
         setTimeout(function () {
             IonPopup.close();
-        }.bind(this), 1000)
+        }.bind(this), 2000)
     }
 });
 

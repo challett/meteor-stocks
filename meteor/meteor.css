@@ -12,7 +12,7 @@ text.shadow {
 }
 
 text {
-    stroke: white
+    color: white;
 }
 path {
     stroke: white;
