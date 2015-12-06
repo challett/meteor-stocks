@@ -17,9 +17,8 @@
             <div class="card-title">My stocks</div>
             <div class="list card">
                 {{>searchBar}}
-                {{#each items}}
+                {{#each portfolioStock}}
                     {{#ionItem path="detail" button-right=true data=this avatar=false class="my-class" id="my-id"}}
-
                         <div id="wrapper">
                             <div class="cell">
                                 <div class="content-left">
@@ -52,8 +51,6 @@
                                 </div>
                             </div>
                         </div>
-
-
                         <div class="list-footer">
                             {{#if showOpen}}
                                 <div class="peek">
@@ -71,10 +68,11 @@
                                 </div>
                             {{/if}}
                         </div>
-
-
                     {{/ionItem}}
                 {{/each}}
+                {{#if searched}}
+                    {{> searchResults}}
+                {{/if}}
             </div>
         {{/ionContent}}
     {{/ionView}}

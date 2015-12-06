@@ -9,6 +9,7 @@ DetailsController = RouteController.extend({
     waitOn: function() {
     },
     data: function() {
+        this.subscribe('stockBySymbol', {symbol: this.params.symbol});
         return {
             stock: Stocks.findOne({symbol: this.params.symbol})
         }

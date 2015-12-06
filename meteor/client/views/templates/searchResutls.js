@@ -1,13 +1,17 @@
 /**
- * Created by Connor on 10/30/2015.
+ * Created by Connor on 12/6/2015.
  */
+Template.searchResults.rendered = function () {
+    Meteor.call('getQuotes', {symbols:  Stocks.find().map( function (object) {
+        return object.symbol
+    }), fields: Fields})
+};
 
-Template.home.helpers({
-    portfolioStock: function () {
-        var portfolioSymbols = Portfolio.find().map(function (stock) {
-            return stock.symbol
-        });
-        return Stocks.find({symbol: {$in: portfolioSymbols}})
+Template.searchResults.helpers({
+    'searchResult': function () {
+        var searchKey = Session.get('searchKey').toUpperCase();
+        var searchRegex = '^'+searchKey+'.*';
+        return Stocks.find({symbol: {$regex: searchRegex}, lastTradePriceOnly: {$ne: null}}, {limit: 5})
     },
     searched: function () {
         return Session.get('searchKey')
@@ -96,34 +100,8 @@ Template.home.helpers({
     showDaysHigh: function () {
         return showElement('daysHigh')
     },
-
-});
-
-Template.home.rendered = function () {
-    Meteor.call('getQuotes', {symbols:  Portfolio.find().map( function (object) {
-        return object.symbol
-    }), fields: Fields});
-};
-
-Template.home.events({
-    'click .remove-button': function (event) {
-        event.stopImmediatePropagation();
-        event.preventDefault();
-
-        Portfolio.remove({symbol: this.symbol})
-    },
-    'click .add-button': function (event) {
-        event.stopImmediatePropagation();
-        event.preventDefault();
-
-        Portfolio.insert({symbol: this.symbol})
-    }
 });
 
 function showElement (value) {
     return Preferences.findOne({name: value}).showPortfolio;
-}
-
-Template.home.created = function () {
-    Session.set('searchKey', '')
 }

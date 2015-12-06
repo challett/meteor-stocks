@@ -1,0 +1,58 @@
+<template name="searchResults">
+    <div class="item item-divider">
+        Results for: {{searched}}
+    </div>
+    {{#each searchResult}}
+        {{#ionItem path="detail" button-right=true data=this avatar=false class="my-class" id="my-id"}}
+            <div id="wrapper">
+                <div class="cell">
+                    <div class="content-left">
+                        <div class="symbol">{{symbol}}</div>
+                        <div class="name">{{name}}</div>
+                        <div class="stockExchange">{{stockExchange}}</div>
+                    </div>
+                </div>
+                <div class="cell">
+                    <div class="content-right">
+                        <div class="priceAndChange">
+                            {{#if showPrice}}
+                                <div class="price" style="color: {{changeColor}};">
+                                    ${{price}}
+                                </div>
+                            {{/if}}
+                            <div class="change" style="background-color: {{changeColor}};">
+                                {{#if showChange}}
+                                    ${{change}}
+                                    <br>
+                                {{/if}}
+                                {{#if showChangeInPercent}}
+                                    {{changeInPercent}}%
+                                {{/if}}
+                            </div>
+                        </div>
+                        <button class="button button-clear button-positive button-portfolio add-button">
+                            <i class="icon ion-plus-circled icon-portfolio"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="list-footer">
+                {{#if showOpen}}
+                    <div class="peek">
+                        Open <b>${{open}}</b>
+                    </div>
+                {{/if}}
+                {{#if showDaysLow}}
+                    <div class="peek">
+                        Day Low <b>${{daysLow}}</b>
+                    </div>
+                {{/if}}
+                {{#if showDaysHigh}}
+                    <div class="peek">
+                        Day High <b>${{daysHigh}}</b>
+                    </div>
+                {{/if}}
+            </div>
+        {{/ionItem}}
+    {{/each}}
+</template>
