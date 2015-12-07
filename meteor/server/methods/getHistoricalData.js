@@ -6,6 +6,6 @@ Meteor.methods({
         //lodash.each(YahooFinance.historical({symbols:[params.symbol], from:moment().subtract(6,"months").format('YYYY-MM-DD'), to:moment().format('YYYY-MM-DD')})[params.symbol], function (item) {
         //    Stocks.update({symbol: item.symbol}, {$addToSet: {historical: {date: moment(item.date).format("DD-MMM-YY"), price:item.close}}})
         //})
-        return YahooFinance.historical({symbols:[params.symbol], from:moment().subtract(6,"months").format('YYYY-MM-DD'), to:moment().format('YYYY-MM-DD')})[params.symbol]
+        return YahooFinance.historical({symbols:[params.symbol], from:moment().subtract(params.days,"days").format('YYYY-MM-DD'), to:moment().format('YYYY-MM-DD')})[params.symbol]
     }
 });

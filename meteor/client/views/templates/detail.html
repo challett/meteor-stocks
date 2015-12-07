@@ -53,11 +53,25 @@
                         <g/>
                     </div>
                 </div>
-                <div class="item item-divider">
-                    Date options for graph
+                <div class="item item-divider row">
+                    <div class="col-20 date-selector" value=365>
+                        1yr
+                    </div>
+                    <div class="col-20 date-selector"  value=182>
+                        6m
+                    </div>
+                    <div class="col-20 date-selector"  value=120>
+                        4m
+                    </div>
+                    <div class="col-20 date-selector"  value=30>
+                        1m
+                    </div>
+                    <div class="col-20 date-selector"  value=7>
+                        7d
+                    </div>
                 </div>
             </div>
-
+            <div class="time">click here for event</div>
             {{#each field in fields}}
                 {{#if stockFieldValue field}}
                     {{#if showElement field}}
