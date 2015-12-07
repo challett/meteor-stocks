@@ -11,7 +11,7 @@ Template.detail.helpers({
 
     },
     changeColor: function () {
-        var stock = this;
+        var stock = this.stock;
         if (stock) {
             var change = stock.change;
             if (change > 0) {
