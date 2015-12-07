@@ -9,7 +9,20 @@ Template.detail.helpers({
     showElement: function (name) {
         return Preferences.findOne({name: name}).showDetail;
 
-    }
+    },
+    changeColor: function () {
+        var stock = this;
+        if (stock) {
+            var change = stock.change;
+            if (change > 0) {
+                return '#2ec76f'
+            } else if (change < 0) {
+                return '#d22d2d'
+            } else {
+                return "#3f5973"
+            }
+        }
+    },
 });
 
 Template.detail.rendered = function () {

@@ -92,7 +92,7 @@ Fields = [
     'e1'
 ];
 NamedFields = [
-    'ask',
+    //'ask',
     'bid',
     'askRealtime',
     'bidRealtime',
@@ -102,8 +102,8 @@ NamedFields = [
     'dividendPerShare',
     'dividendPayDate',
     'exDividendDate',
-    'change',
-    'changeAndPercentChange',
+    //'change',
+    //'changeAndPercentChange',
     'changeRealtime',
     'changePercentRealtime',
     'changeInPercent',
