@@ -43,7 +43,7 @@ Template.detail.events({
 
             var xAxis = d3.svg.axis()
                 .scale(x)
-                .orient("bottom");
+                .orient("bottom").ticks(8).tickFormat(d3.time.format("%b-%d"));
 
             var yAxis = d3.svg.axis()
                 .scale(y)
@@ -104,13 +104,13 @@ Template.detail.events({
                 .attr("d", area);
 
             // Draw the x Grid lines
-            /*svg.append("g")
-             .attr("class", "grid")
-             .attr("transform", "translate(0," + height + ")")
-             .call(make_x_axis()
-             .tickSize(-height, 0, 0)
-             .tickFormat("")
-             )*/
+            //svg.append("g")
+            // .attr("class", "grid")
+            // .attr("transform", "translate(0," + height + ")")
+            // .call(make_x_axis()
+            // .tickSize(-height, 0, 0)
+            // .tickFormat("")
+            // )
 
             // Draw the y Grid lines
             /*svg.append("g")
@@ -128,7 +128,7 @@ Template.detail.events({
             svg.append("g")
                 .attr("class", "x axis")
                 .attr("transform", "translate(-20," + xAxisHeight + ")")
-                .call(xAxis);
+                .call(xAxis)
 
             // Add the Y Axis
             svg.append("g")
@@ -178,7 +178,8 @@ Template.detail.rendered = function () {
 
         var xAxis = d3.svg.axis()
             .scale(x)
-            .orient("bottom");
+            .orient("bottom")
+            .tickFormat(d3.time.format("%b-%d"));
 
         var yAxis = d3.svg.axis()
             .scale(y)
