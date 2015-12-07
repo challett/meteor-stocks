@@ -31,6 +31,9 @@ Template.detail.helpers({
         } else {
             return fieldVal;
         }
+    },
+    inPortfolio: function (stockName) {
+        return (typeof(Portfolio.findOne({symbol: stockName}).symbol) === 'string' )
     }
 });
 Template.detail.events({
@@ -170,6 +173,44 @@ Template.detail.events({
 
 
         });
+    },
+    'click .remove-button': function (event) {
+        event.stopImmediatePropagation();
+        event.preventDefault();
+        var self = this.stock;
+        IonPopup.show({
+            title: 'Are You Sure?',
+            template: 'Are you sure you want to remove this stock from your portfolio?',
+            buttons: [{
+                text: 'Yes',
+                type: 'button-positive',
+                onTap: function() {
+                    Portfolio.remove({symbol: self.symbol})
+                    IonPopup.close()
+                }
+            },
+                {
+                    text: 'No',
+                    type: 'button-positive',
+                    onTap: function() {
+                        IonPopup.close()
+                    }
+                }]
+        });
+    },
+    'click .add-button': function (event) {
+        event.stopImmediatePropagation();
+        event.preventDefault();
+        var self= this.stock;
+        IonPopup.show({
+            title: 'Stock Added',
+            template: self.symbol + ' has been added to your portfolio!',
+            buttons: []
+        });
+        Portfolio.insert({symbol: self.symbol})
+        setTimeout(function () {
+            IonPopup.close();
+        }.bind(this), 2000)
     }
 });
 Template.detail.rendered = function () {
