@@ -12,7 +12,10 @@ text.shadow {
 }
 
 text {
-    color: white;
+    fill: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 0.7em;
 }
 path {
     stroke: white;
@@ -43,7 +46,7 @@ path {
 }
 
 .area {
-    fill: #364c63;
+    fill: none;
     opacity: 0.5;
     stroke-width: 0;
 }

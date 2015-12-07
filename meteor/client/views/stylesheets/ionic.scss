@@ -34,16 +34,21 @@ $footer: #F5F5F5;
   padding: 0;
 }
 
+.detail-card {
+  /*width: 100%;*/
+  margin: 0 !important;
+}
 .detail-card-title {
   position: relative;
   height: auto;
-  display: inline-block;
+  /*display: inline-block;*/
+  text-align: center;
 }
 
 .graph-card-section {
   background-color: $prim;
   color: white !important;
-  height: 400px;
+  height: 300px;
   padding: 0 !important;
 }
 
@@ -52,13 +57,17 @@ $footer: #F5F5F5;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   color: white;
+  padding: 6px;
+  font-size: 1em;
 }
 
 .item-text-wrap-title {
   font-family: 'Roboto', sans-serif;
-  font-weight: 600;
+  font-weight: 800;
   color: $prim;
   text-align: center;
+  padding: 5px;
+  font-size: 1.5em;
 }
 
 .symbol {
@@ -72,6 +81,10 @@ $footer: #F5F5F5;
   font-weight: 400;
   color: $lightFont;
   font-size: 1em;
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .stockExchange {
   font-family: 'Roboto', sans-serif;
@@ -157,6 +170,15 @@ $footer: #F5F5F5;
   font-weight: 500;
   font-size: 0.8em;
   text-align: center;
+}
+
+.date-selector {
+  text-align: center;
+  padding: 10px;
+  color: $prim;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  font-size: 1em;
 }
 
 

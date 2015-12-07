@@ -32,12 +32,12 @@
                         <div class="content-right">
                             <div class="priceAndChange">
                                 <div class="price" style="color: {{changeColor}};">
-                                    ${{stock.ask}}
+                                    ${{stock.lastTradePriceOnly}}
                                 </div>
                                 <div class="change" style="background-color: {{changeColor}};">
                                     ${{stock.change}}
                                     <br>
-                                    ({{stock.changeAndPercentChange}}%)
+                                    ({{stock.changeInPercent}}%)
                                 </div>
                             </div>
                         </div>
@@ -69,18 +69,20 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-48">
-                    <div class="card detail-card detail-card-title">
-                        <div class="item item-divider item-divider-title">
-                            Open
+            <div class="row" style="margin-top: -20px;">
+                <div class="col">
+                    <div class="card detail-card">
+                        <div class="detail-card-title">
+                            <div class="item item-divider item-divider-title">
+                                Open
+                            </div>
                         </div>
                         <div class="item item-text-wrap item-text-wrap-title">
                             {{stock.open}}
                         </div>
                     </div>
                 </div>
-                <div class="col-48">
+                <div class="col">
                     <div class="card detail-card detail-card-title">
                         <div class="item item-divider item-divider-title">
                             Previous Close
@@ -92,15 +94,42 @@
                 </div>
             </div>
 
+            <div class="row">
+                <div class="col">
+                    <div class="card detail-card detail-card-title">
+                        <div class="item item-divider item-divider-title">
+                            Day Low
+                        </div>
+                        <div class="item item-text-wrap item-text-wrap-title">
+                            {{stock.daysLow}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card detail-card detail-card-title">
+                        <div class="item item-divider item-divider-title">
+                            Day High
+                        </div>
+                        <div class="item item-text-wrap item-text-wrap-title">
+                            {{stock.daysHigh}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             {{#each field in fields}}
                 {{#if stockFieldValue field}}
                     {{#if showElement field}}
-                        <div class="card detail-card detail-card-title">
-                            <div class="item item-divider item-divider-title">
-                                {{field}}
-                            </div>
-                            <div class="item item-text-wrap item-text-wrap-title">
-                                {{stockFieldValue field}}
+                        <div class="row">
+                            <div class="col">
+                                <div class="card detail-card detail-card-title">
+                                    <div class="item item-divider item-divider-title">
+                                        {{field}}
+                                    </div>
+                                    <div class="item item-text-wrap item-text-wrap-title">
+                                        {{stockFieldValue field}}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     {{/if}}

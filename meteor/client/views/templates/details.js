@@ -28,10 +28,9 @@ Template.detail.events({
     'click .date-selector': function (e) {
         d3.select("svg").remove();
         Meteor.call('getHistoricalData', {symbol: this.stock.symbol , days: e.target.attributes.value.value}, function (err, data) {
-            var margin = {top: 0, right: 0, bottom: 0, left: 0},
-                width = document.getElementById("graph-card-section").clientWidth,
-                height = document.getElementById("graph-card-section").clientHeight;
-            xAxisHeight = height - 32;
+            var margin = {top: 50, right: 0, bottom: 0, left: 35},
+                width = document.getElementById("graph-card-section").clientWidth - 35,
+                height = document.getElementById("graph-card-section").clientHeight - 60;
 
             var parseDate = d3.time.format("%d-%b-%y").parse;
 
@@ -127,14 +126,17 @@ Template.detail.events({
             // Add the X Axis
             svg.append("g")
                 .attr("class", "x axis")
-                .attr("transform", "translate(-20," + xAxisHeight + ")")
+                .attr("transform", "translate(-10,-50)")
                 .call(xAxis)
+                .selectAll("text")
+                    .style("text-anchor", "end")
+                    .attr("dx", "-.8em")
+                    .attr("dy", ".15em")
+                    .attr("transform", "rotate(-75)" );
 
             // Add the Y Axis
             svg.append("g")
                 .attr("class", "y axis")
-                .attr("transform", "translate(35,0)")
-                .attr("x", margin.top - (height / 2))
                 .attr("dy", ".71em")
                 .call(yAxis);
 
@@ -163,10 +165,9 @@ Template.detail.events({
 });
 Template.detail.rendered = function () {
     Meteor.call('getHistoricalData', {symbol: this.data.stock.symbol , days: 180}, function (err, data) {
-        var margin = {top: 0, right: 0, bottom: 0, left: 0},
-            width = document.getElementById("graph-card-section").clientWidth,
-            height = document.getElementById("graph-card-section").clientHeight;
-            xAxisHeight = height - 32;
+        var margin = {top: 50, right: 0, bottom: 0, left: 35},
+            width = document.getElementById("graph-card-section").clientWidth - 35,
+            height = document.getElementById("graph-card-section").clientHeight - 60;
 
         var parseDate = d3.time.format("%d-%b-%y").parse;
 
@@ -178,8 +179,7 @@ Template.detail.rendered = function () {
 
         var xAxis = d3.svg.axis()
             .scale(x)
-            .orient("bottom")
-            .tickFormat(d3.time.format("%b-%d"));
+            .orient("bottom").ticks(8).tickFormat(d3.time.format("%b-%d"));
 
         var yAxis = d3.svg.axis()
             .scale(y)
@@ -200,19 +200,19 @@ Template.detail.rendered = function () {
 
         // function for the x grid lines
         /*function make_x_axis() {
-            return d3.svg.axis()
-                .scale(x)
-                .orient("bottom")
-                .ticks(0)
-        }*/
+         return d3.svg.axis()
+         .scale(x)
+         .orient("bottom")
+         .ticks(0)
+         }*/
 
         // function for the y grid lines
         /*function make_y_axis() {
-            return d3.svg.axis()
-                .scale(y)
-                .orient("left")
-                .ticks(0)
-        }*/
+         return d3.svg.axis()
+         .scale(y)
+         .orient("left")
+         .ticks(0)
+         }*/
 
         var svg = d3.select("#graph").append("svg")
             .attr("width", width + margin.left + margin.right)
@@ -240,21 +240,21 @@ Template.detail.rendered = function () {
             .attr("d", area);
 
         // Draw the x Grid lines
-        /*svg.append("g")
-            .attr("class", "grid")
-            .attr("transform", "translate(0," + height + ")")
-            .call(make_x_axis()
-                .tickSize(-height, 0, 0)
-                .tickFormat("")
-        )*/
+        //svg.append("g")
+        // .attr("class", "grid")
+        // .attr("transform", "translate(0," + height + ")")
+        // .call(make_x_axis()
+        // .tickSize(-height, 0, 0)
+        // .tickFormat("")
+        // )
 
         // Draw the y Grid lines
         /*svg.append("g")
-            .attr("class", "grid")
-            .call(make_y_axis()
-                .tickSize(-width, 0, 0)
-                .tickFormat("")
-        )*/
+         .attr("class", "grid")
+         .call(make_y_axis()
+         .tickSize(-width, 0, 0)
+         .tickFormat("")
+         )*/
 
         // Add the valueline path.
         svg.append("path")
@@ -263,35 +263,38 @@ Template.detail.rendered = function () {
         // Add the X Axis
         svg.append("g")
             .attr("class", "x axis")
-            .attr("transform", "translate(-20," + xAxisHeight + ")")
-            .call(xAxis);
+            .attr("transform", "translate(-10,-50)")
+            .call(xAxis)
+            .selectAll("text")
+            .style("text-anchor", "end")
+            .attr("dx", "-.8em")
+            .attr("dy", ".15em")
+            .attr("transform", "rotate(-75)" );
 
         // Add the Y Axis
         svg.append("g")
             .attr("class", "y axis")
-            .attr("transform", "translate(35,0)")
-            .attr("x", margin.top - (height / 2))
             .attr("dy", ".71em")
             .call(yAxis);
 
         // Add the white background to the y axis label for legibility
         /*svg.append("text")
-            .attr("transform", "rotate(-90)")
-            .attr("y", 6)
-            .attr("x", margin.top - (height / 2))
-            .attr("dy", ".71em")
-            .style("text-anchor", "end")
-            .attr("class", "shadow")
-            .text("Price ($)");*/
+         .attr("transform", "rotate(-90)")
+         .attr("y", 6)
+         .attr("x", margin.top - (height / 2))
+         .attr("dy", ".71em")
+         .style("text-anchor", "end")
+         .attr("class", "shadow")
+         .text("Price ($)");*/
 
         // Add the text label for the Y axis
         /*svg.append("text")
-            .attr("transform", "rotate(-90)")
-            .attr("y", 6)
-            .attr("x", margin.top - (height / 2))
-            .attr("dy", ".71em")
-            .style("text-anchor", "end")
-            .text("Price ($)");*/
+         .attr("transform", "rotate(-90)")
+         .attr("y", 6)
+         .attr("x", margin.top - (height / 2))
+         .attr("dy", ".71em")
+         .style("text-anchor", "end")
+         .text("Price ($)");*/
 
 
     });
