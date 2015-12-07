@@ -37,7 +37,7 @@
                                 <div class="change" style="background-color: {{changeColor}};">
                                     ${{stock.change}}
                                     <br>
-                                    ({{stock.changeInPercent}}%)
+                                    {{fixDecimals stock stock.changeInPercent 3}}%
                                 </div>
                             </div>
                         </div>
@@ -127,7 +127,7 @@
                                         {{field}}
                                     </div>
                                     <div class="item item-text-wrap item-text-wrap-title">
-                                        {{stockFieldValue field}}
+                                        {{fixDecimals field (stockFieldValue field) 2}}
                                     </div>
                                 </div>
                             </div>

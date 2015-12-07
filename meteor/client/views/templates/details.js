@@ -23,6 +23,15 @@ Template.detail.helpers({
             }
         }
     },
+    fixDecimals: function (field, fieldVal, floatDec) {
+        if ((field==='volume') || (field==='averageDailyVolume')){
+            return fieldVal;
+        } else if (typeof(fieldVal) === 'number') {
+            return fieldVal.toFixed(floatDec);
+        } else {
+            return fieldVal;
+        }
+    }
 });
 Template.detail.events({
     'click .date-selector': function (e) {
