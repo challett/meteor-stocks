@@ -11,10 +11,12 @@ $lightFont: #9a9a9a;
 $medFont: #939393;
 $drkFont: #BDBDBD;
 $footer: #F5F5F5;
-
+h1 {
+  color: white;
+}
 .navBar {
   background-color: $prim;
-  color: white;
+  color: white !important;
   position: relative;
 }
 
