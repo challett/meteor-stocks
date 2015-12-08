@@ -73,21 +73,6 @@ Template.detail.events({
                 .x(function(d) { return x(d.date); })
                 .y(function(d) { return y(d.close); });
 
-            // function for the x grid lines
-            /*function make_x_axis() {
-             return d3.svg.axis()
-             .scale(x)
-             .orient("bottom")
-             .ticks(0)
-             }*/
-
-            // function for the y grid lines
-            /*function make_y_axis() {
-             return d3.svg.axis()
-             .scale(y)
-             .orient("left")
-             .ticks(0)
-             }*/
 
             var svg = d3.select("#graph").append("svg")
                 .attr("width", width + margin.left + margin.right)
@@ -114,22 +99,7 @@ Template.detail.events({
                 .attr("class", "area")
                 .attr("d", area);
 
-            // Draw the x Grid lines
-            //svg.append("g")
-            // .attr("class", "grid")
-            // .attr("transform", "translate(0," + height + ")")
-            // .call(make_x_axis()
-            // .tickSize(-height, 0, 0)
-            // .tickFormat("")
-            // )
 
-            // Draw the y Grid lines
-            /*svg.append("g")
-             .attr("class", "grid")
-             .call(make_y_axis()
-             .tickSize(-width, 0, 0)
-             .tickFormat("")
-             )*/
 
             // Add the valueline path.
             svg.append("path")
@@ -151,25 +121,6 @@ Template.detail.events({
                 .attr("class", "y axis")
                 .attr("dy", ".71em")
                 .call(yAxis);
-
-            // Add the white background to the y axis label for legibility
-            /*svg.append("text")
-             .attr("transform", "rotate(-90)")
-             .attr("y", 6)
-             .attr("x", margin.top - (height / 2))
-             .attr("dy", ".71em")
-             .style("text-anchor", "end")
-             .attr("class", "shadow")
-             .text("Price ($)");*/
-
-            // Add the text label for the Y axis
-            /*svg.append("text")
-             .attr("transform", "rotate(-90)")
-             .attr("y", 6)
-             .attr("x", margin.top - (height / 2))
-             .attr("dy", ".71em")
-             .style("text-anchor", "end")
-             .text("Price ($)");*/
 
 
         });
@@ -248,22 +199,6 @@ Template.detail.rendered = function () {
             .x(function(d) { return x(d.date); })
             .y(function(d) { return y(d.close); });
 
-        // function for the x grid lines
-        /*function make_x_axis() {
-         return d3.svg.axis()
-         .scale(x)
-         .orient("bottom")
-         .ticks(0)
-         }*/
-
-        // function for the y grid lines
-        /*function make_y_axis() {
-         return d3.svg.axis()
-         .scale(y)
-         .orient("left")
-         .ticks(0)
-         }*/
-
         var svg = d3.select("#graph").append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
@@ -289,23 +224,6 @@ Template.detail.rendered = function () {
             .attr("class", "area")
             .attr("d", area);
 
-        // Draw the x Grid lines
-        //svg.append("g")
-        // .attr("class", "grid")
-        // .attr("transform", "translate(0," + height + ")")
-        // .call(make_x_axis()
-        // .tickSize(-height, 0, 0)
-        // .tickFormat("")
-        // )
-
-        // Draw the y Grid lines
-        /*svg.append("g")
-         .attr("class", "grid")
-         .call(make_y_axis()
-         .tickSize(-width, 0, 0)
-         .tickFormat("")
-         )*/
-
         // Add the valueline path.
         svg.append("path")
             .attr("d", valueline(data));
@@ -326,26 +244,6 @@ Template.detail.rendered = function () {
             .attr("class", "y axis")
             .attr("dy", ".71em")
             .call(yAxis);
-
-        // Add the white background to the y axis label for legibility
-        /*svg.append("text")
-         .attr("transform", "rotate(-90)")
-         .attr("y", 6)
-         .attr("x", margin.top - (height / 2))
-         .attr("dy", ".71em")
-         .style("text-anchor", "end")
-         .attr("class", "shadow")
-         .text("Price ($)");*/
-
-        // Add the text label for the Y axis
-        /*svg.append("text")
-         .attr("transform", "rotate(-90)")
-         .attr("y", 6)
-         .attr("x", margin.top - (height / 2))
-         .attr("dy", ".71em")
-         .style("text-anchor", "end")
-         .text("Price ($)");*/
-
 
     });
 };
