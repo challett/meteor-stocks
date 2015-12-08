@@ -39,6 +39,15 @@
                                     <br>
                                     {{fixDecimals stock stock.changeInPercent 3}}%
                                 </div>
+                                {{#if inPortfolio stock.symbol}}
+                                    <button class="button button-clear button-positive button-portfolio remove-button">
+                                        <i class="icon ion-minus-circled icon-portfolio"></i>
+                                    </button>
+                                {{else}}
+                                    <button class="button button-clear button-positive button-portfolio add-button">
+                                        <i class="icon ion-plus-circled icon-portfolio"></i>
+                                    </button>
+                                {{/if}}
                             </div>
                         </div>
                     </div>
