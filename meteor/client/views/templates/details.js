@@ -33,7 +33,7 @@ Template.detail.helpers({
         }
     },
     inPortfolio: function (stockName) {
-        return (typeof(Portfolio.findOne({symbol: stockName}).symbol) === 'string' )
+        return Portfolio.findOne({symbol: stockName}).symbol
     }
 });
 Template.detail.events({
