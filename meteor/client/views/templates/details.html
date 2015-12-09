@@ -36,16 +36,16 @@
                                     <br>
                                     {{fixDecimals stock stock.changeInPercent 3}}%
                                 </div>
-                                {{#if inPortfolio stock.symbol}}
-                                    <button class="button button-clear button-positive button-portfolio remove-button">
-                                        <i class="icon ion-minus-circled icon-portfolio"></i>
-                                    </button>
-                                {{else}}
-                                    <button class="button button-clear button-positive button-portfolio add-button">
-                                        <i class="icon ion-plus-circled icon-portfolio"></i>
-                                    </button>
-                                {{/if}}
                             </div>
+                            {{#if inPortfolio stock.symbol}}
+                                <button class="button button-clear button-positive button-portfolio remove-button">
+                                    <i class="icon ion-minus-circled icon-portfolio"></i>
+                                </button>
+                            {{else}}
+                                <button class="button button-clear button-positive button-portfolio add-button">
+                                    <i class="icon ion-plus-circled icon-portfolio"></i>
+                                </button>
+                            {{/if}}
                         </div>
                     </div>
                 </div>
@@ -75,7 +75,7 @@
                 </div>
             </div>
 
-            <div class="row" style="margin-top: -20px;">
+            <div class="row" style="margin-top: -10px;">
                 <div class="col">
                     <div class="card detail-card">
                         <div class="detail-card-title">
@@ -128,7 +128,7 @@
                     {{#if showElement field}}
                         <div class="row">
                             <div class="col">
-                                <div class="card detail-card detail-card-title">
+                                <div class="card detail-card detail-card-title" style="margin-top: 10px !important;">
                                     <div class="item item-divider item-divider-title">
                                         {{field}}
                                     </div>

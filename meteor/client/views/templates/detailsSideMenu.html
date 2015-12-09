@@ -10,18 +10,18 @@
             {{#each item in preference}}
                     {{#if weHaveData item.name}}
                         {{#autoForm collection="Preferences" type="update" template="ionic" doc=item autosave=true id=item.name label=false}}
-                            <fieldset>
-                                <div class="row">
 
-                                    <div class="col col-75">
+                            <fieldset>
+                                <div class="sidemenu">
+                                    <div class="sidemenu-name">
                                         {{> afQuickField name='name' hidden=true label=false}}
                                     </div>
-                                    <div class="col">
+                                    <div class="sidemenu-check">
                                         {{> afQuickField name='showDetail' value=item.showDetail trueLabel="Yes" falseLabel="No"}}
                                     </div>
                                 </div>
-
                             </fieldset>
+
                         {{/autoForm}}
                 {{/if}}
             {{/each}}

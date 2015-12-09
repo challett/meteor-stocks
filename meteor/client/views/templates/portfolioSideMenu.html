@@ -13,22 +13,28 @@
                     {{#autoForm collection="Preferences" type="update" template="ionic" doc=item autosave=true id=item.name label=false}}
 
                         <fieldset>
-                            <div class="row">
-                            <div class="col col-75">
-                                {{> afQuickField name='name' hidden=true label=false}}
-                            </div>
-                            <div class="col">
-                                {{> afQuickField name='showPortfolio' value=item.showPortfolio trueLabel="Yes" falseLabel="No"}}
-                            </div>
+                            <div class="sidemenu">
+                                <div class="sidemenu-name">
+                                    {{> afQuickField name='name' hidden=true label=false}}
+                                </div>
+                                <div class="sidemenu-check">
+                                    {{> afQuickField name='showPortfolio' value=item.showPortfolio trueLabel="Yes" falseLabel="No"}}
+                                </div>
                             </div>
                         </fieldset>
+
                     {{/autoForm}}
 
             {{/if}}
         {{/each}}
         {{#autoForm collection="Preferences" type="update" template="ionic" doc=sortingPreference autosave=true id=sortingPreference.name}}
             <fieldset>
-                {{> afQuickField name='sort' label='Sort'}}
+                <div class="sidemenu">
+                    <div class="sidemenu-sort">
+                        Sort Stocks
+                    </div>
+                    {{> afQuickField name='sort' label=''}}
+                </div>
             </fieldset>
         {{/autoForm}}
     {{/ionList}}

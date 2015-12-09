@@ -77,8 +77,9 @@ h1 {
   font-weight: 800;
   color: $prim;
   text-align: center;
-  padding: 5px;
-  font-size: 1.5em;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 1.6em;
 }
 
 .symbol {
@@ -197,6 +198,8 @@ h1 {
   font-family: 'Roboto', sans-serif;
   font-weight: 600;
   font-size: 1em;
+  border-right: 1px solid #DDD;
+  margin-right: 1px;
 }
 
 
@@ -209,9 +212,39 @@ h1 {
 }
 
 fieldset {
-  padding: 15px;
-  /*border: none;*/
-  margin: 0;
+  padding: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-top: -1px;
+  border-top: 1px solid #DDD;
+  border-bottom: 1px solid #DDD;
+  border-right: none;
+  border-left: none;
+}
+textarea, input[type="text"] {
+  text-overflow: ellipsis;
+}
+
+.sidemenu {
+  display: table;
+  width: 100%;
+}
+.sidemenu-name {
+  float: left;
+  padding: 10px;
+}
+.sidemenu-check {
+  float: right;
+  padding-top: 6px;
+  padding-right: 8px !important;
+}
+.sidemenu-sort {
+  width: 100%;
+  height: auto;
+  background-color: #DDD;
+  padding: 6px;
+  padding-left: 10px !important;
 }
 
 
