@@ -67,10 +67,10 @@ Template.home.events({
         event.preventDefault();
         var self = this;
         IonPopup.show({
-            title: 'Are You Sure?',
+            title: 'Remove Stock',
             template: 'Are you sure you want to remove this stock from your portfolio?',
             buttons: [{
-                text: 'Yes',
+                text: 'Remove',
                 type: 'button-positive',
                 onTap: function() {
                     Portfolio.remove({symbol: self.symbol})
@@ -78,7 +78,7 @@ Template.home.events({
                 }
             },
                 {
-                    text: 'No',
+                    text: 'Keep',
                     type: 'button-positive',
                     onTap: function() {
                         IonPopup.close()

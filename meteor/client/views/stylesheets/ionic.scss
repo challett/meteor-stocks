@@ -10,7 +10,10 @@ $searchBkgd: #fafafa;
 $lightFont: #9a9a9a;
 $medFont: #939393;
 $drkFont: #BDBDBD;
-$footer: #F5F5F5;
+$footer: #FDFDFD;
+$gain: #2ec76f;
+$loss: #d22d2d;
+
 h1 {
   color: white;
 }
@@ -18,7 +21,7 @@ h1 {
   background-color: $bkgd;
 }
 .form-control {
-  background-color: $bkgd;
+  background-color: transparent;
 }
 .navBar {
   background-color: $prim;
@@ -89,7 +92,6 @@ h1 {
   font-weight: 400;
   color: $lightFont;
   font-size: 1em;
-  width: 200px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -111,17 +113,19 @@ h1 {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
-  padding: 5px;
+  padding: 0;
   position: relative;
 }
 .priceAndChange {
   font-family: 'Roboto', sans-serif;
-  font-weight: 600;
+  font-weight: 500;
   width: 80px;
+  font-size: 0.8em;
   text-align: center;
   position: relative;
   float: left;
   display: inline-block;
+  margin-top: -5px;
 }
 
 #wrapper {
@@ -136,6 +140,7 @@ h1 {
 .content-left {
   float: left;
   margin: 16px;
+  max-width: 50%;
 }
 .content-right{
   float: right;
@@ -148,6 +153,7 @@ h1 {
 .button-portfolio {
   float: right;
   margin-right: -15px;
+  margin-top: 6px;
 }
 
 .peek {
@@ -166,9 +172,13 @@ h1 {
   background-color: $footer;
   width: 100%;
   height: auto;
-  padding: 5px;
+  padding: 0;
   display: inline-block;
   bottom: 0;
+  border-top-width: 2px;
+  border-top-color: $searchBkgd;
+  border-top-style: solid;
+  margin-top: -15px;
 }
 
 .portfolio-empty {
@@ -187,6 +197,21 @@ h1 {
   font-family: 'Roboto', sans-serif;
   font-weight: 600;
   font-size: 1em;
+}
+
+
+.item-icon-right {
+  padding: 12px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  font-size: 1em;
+  color: $prim;
+}
+
+fieldset {
+  padding: 15px;
+  /*border: none;*/
+  margin: 0;
 }
 
 
@@ -233,4 +258,31 @@ h1 {
        transform: scaleY(1.0);
        -webkit-transform: scaleY(1.0);
      }
+}
+
+.popup-container.active .popup {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.popup-title {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 1.5em;
+  color: black;
+}
+.popup-body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 1em;
+  text-align: center;
+  color: black;
+}
+.button.button-positive {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 1.2em;
+  color: white;
+  background-color: $loss;
+  border-color: $loss;
 }
