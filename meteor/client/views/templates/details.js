@@ -138,7 +138,7 @@ Template.detail.events({
         var self = this.stock;
         IonPopup.show({
             title: 'Remove Stock',
-            template: 'Are you sure you want to remove this stock from your portfolio?',
+            template: 'Are you sure you want to remove ' + self.symbol + ' from your portfolio?',
             buttons: [{
                 text: 'Remove',
                 type: 'button-positive',

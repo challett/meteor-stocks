@@ -141,7 +141,7 @@ h1 {
 .content-left {
   float: left;
   margin: 16px;
-  max-width: 50%;
+  max-width: 40%;
 }
 .content-right{
   float: right;
@@ -197,7 +197,7 @@ h1 {
   color: $prim;
   font-family: 'Roboto', sans-serif;
   font-weight: 600;
-  font-size: 1em;
+  font-size: 0.6em;
   border-right: 1px solid #DDD;
   margin-right: 1px;
 }
@@ -245,6 +245,10 @@ textarea, input[type="text"] {
   background-color: #DDD;
   padding: 6px;
   padding-left: 10px !important;
+}
+.sidemenu-sort-options {
+  padding: 10px;
+  padding-left: 30px !important;
 }
 
 
