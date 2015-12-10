@@ -34,6 +34,13 @@ Template.detail.helpers({
     },
     inPortfolio: function (stockName) {
         return Portfolio.findOne({symbol: stockName}).symbol
+    },
+    fieldName: function (string) {
+        return string
+            // insert a space before all caps
+            .replace(/([A-Z])/g, ' $1')
+            // uppercase the first character
+            .replace(/^./, function(str){ return str.toUpperCase(); }).replace(/([a-z])(?=[0-9])/g, '$1 ')
     }
 });
 Template.detail.events({
