@@ -67,4 +67,11 @@ Template.detailsSideMenu.helpers({
     preference: function () {
         return Preferences.find();
     },
+    fieldName: function (string) {
+        return this._af.doc.name
+            // insert a space before all caps
+            .replace(/([A-Z])/g, ' $1')
+            // uppercase the first character
+            .replace(/^./, function(str){ return str.toUpperCase(); }).replace(/([a-z])(?=[0-9])/g, '$1 ')
+    }
 });
